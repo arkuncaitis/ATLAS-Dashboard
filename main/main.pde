@@ -1,3 +1,6 @@
+import java.text.SimpleDateFormat;
+import java.util.TimeZone;
+import java.util.Date;
 import de.looksgood.ani.*;
 
 //X dimension for the currently selected category - 
@@ -19,12 +22,23 @@ void setup(){
 
 void draw(){
   background(200, 200, 200);
+  //Main Body/Content Background
   noStroke();
   fill(255, 0, 0);
   rect(100, 18, 1000, 600, 12);
   triangle(currentCatX, currentCatY, 
            currentCatX+50, currentCatY-25, 
            currentCatX+50, currentCatY+25);
+           
+  //HEADER
+  //gets 12 hour based time from user's computer
+  //displays as 12:08 PM
+  SimpleDateFormat time = new SimpleDateFormat("h:mm a");
+  TimeZone tz = TimeZone.getTimeZone("US/Eastern");
+  time.setTimeZone(tz);
+  String displayTime = time.format(new Date());
+  fill(0,0,0);
+  text(displayTime, 500, 50);
 }
 
 void mouseClicked(){
