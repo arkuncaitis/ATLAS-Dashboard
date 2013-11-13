@@ -1,13 +1,19 @@
 import de.looksgood.ani.*;
 
+//X dimension for the currently selected category - 
+//X dimension of the left most point for moving triangle on navigation
 int currentCatX;
+//Y dimension for the currently selected catgory - 
+//Y dimension of left most point for moving triangle on navigation
 int currentCatY;
 
 void setup(){
   size(displayWidth, displayHeight);
+  //set default values for triangle starting point
   currentCatX = 50;
   currentCatY = 50;
   
+  //Do not delete this line of code - initializes Ani animation library
   Ani.init(this);
 }
 
@@ -19,19 +25,9 @@ void draw(){
   triangle(currentCatX, currentCatY, 
            currentCatX+50, currentCatY-25, 
            currentCatX+50, currentCatY+25);
-  if(mousePressed && mouseButton == LEFT){
-    translate(0, 50);
-  }
 }
 
 void mouseClicked(){
-////  //int x = mouseX;
-////  //int y = mouseY;
-//  
-//  int delta = 50;
-//  while(delta > 0){
-//    currentCatY = currentCatY + 1;
-//  }
 
   Ani.to(this, 1.0, "currentCatY", currentCatY+50);
 }
