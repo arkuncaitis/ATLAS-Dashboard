@@ -31,10 +31,19 @@ void draw(){
            currentCatX+50, currentCatY+25);
            
   //HEADER
+  
+  //get and display date
+  SimpleDateFormat date = new SimpleDateFormat("EEE, MMMMM d, yyyy");
+  TimeZone tz = TimeZone.getTimeZone("US/Eastern");
+  date.setTimeZone(tz);
+  String displayDate = date.format(new Date());
+  fill(0,0,0);
+  text(displayDate, 500, 100);
+  
   //gets 12 hour based time from user's computer
   //displays as 12:08 PM
   SimpleDateFormat time = new SimpleDateFormat("h:mm a");
-  TimeZone tz = TimeZone.getTimeZone("US/Eastern");
+  //TimeZone tz = TimeZone.getTimeZone("US/Eastern");
   time.setTimeZone(tz);
   String displayTime = time.format(new Date());
   fill(0,0,0);
