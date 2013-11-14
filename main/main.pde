@@ -12,6 +12,8 @@ int currentCatX;
 int currentCatY;
 //ATL Skyline image
 PImage skyline;
+//instance of weather library
+YahooWeather weather;
 //Mock State Machine variables for navigation bar
 int currentState;
 final int HOME = 0;
@@ -37,11 +39,18 @@ void setup(){
   
   //Do not delete this line of code - initializes Ani animation library
   Ani.init(this);
+  //initialize weather settings for atlanta
+  //2357024 = WOEID for Fulton County, Atlanta, GA
+  weather = new YahooWeather(this, 2357024, "f", updateIntervallMillis);
 }
 
 void draw(){
+  //update the weather information
+  weather.update();
+  //draw the atlanta skyline photo as the background
   background(skyline);
-  //Main Body/Content Background
+  
+  //CONTENT AREA
   noStroke();
   fill(255, 0, 0);
   rect(100, 18, 1000, 600, 12);
@@ -52,15 +61,14 @@ void draw(){
   //HEADER
   
   //get and display date
-  SimpleDateFormat date = new SimpleDateFormat("EEE, MMMMM d, yyyy");
+  SimpleDateFormat date = new SimpleDateFormat("EEEEE, MMMMM d");
   TimeZone tz = TimeZone.getTimeZone("US/Eastern");
   date.setTimeZone(tz);
   String displayDate = date.format(new Date());
   fill(0,0,0);
   text(displayDate, 500, 100);
   
-  //gets 12 hour based time from user's computer
-  //displays as 12:08 PM
+  //get and display time
   SimpleDateFormat time = new SimpleDateFormat("h:mm a");
   //TimeZone tz = TimeZone.getTimeZone("US/Eastern");
   time.setTimeZone(tz);
