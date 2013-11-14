@@ -2,6 +2,7 @@ import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 import java.util.Date;
 import de.looksgood.ani.*;
+import com.onformative.yahooweather.*;
 
 //X dimension for the currently selected category - 
 //X dimension of the left most point for moving triangle on navigation
@@ -19,6 +20,8 @@ void setup(){
   currentCatY = 50;
   //init skyline
   skyline = loadImage("atlanta.jpg");
+  //resizes the image to the size of the application
+  //a background image must be the same size as the application, or a runtime error is thrown
   skyline.resize(displayWidth, displayHeight);
   
   //Do not delete this line of code - initializes Ani animation library
