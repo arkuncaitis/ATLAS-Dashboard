@@ -9,19 +9,24 @@ int currentCatX;
 //Y dimension for the currently selected catgory - 
 //Y dimension of left most point for moving triangle on navigation
 int currentCatY;
+//ATL Skyline image
+PImage skyline;
 
 void setup(){
   size(displayWidth, displayHeight);
   //set default values for triangle starting point
   currentCatX = 50;
   currentCatY = 50;
+  //init skyline
+  skyline = loadImage("atlanta.jpg");
+  skyline.resize(displayWidth, displayHeight);
   
   //Do not delete this line of code - initializes Ani animation library
   Ani.init(this);
 }
 
 void draw(){
-  background(200, 200, 200);
+  background(skyline);
   //Main Body/Content Background
   noStroke();
   fill(255, 0, 0);
