@@ -12,9 +12,20 @@ int currentCatX;
 int currentCatY;
 //ATL Skyline image
 PImage skyline;
+//Mock State Machine variables for navigation bar
+int currentState;
+final int HOME = 0;
+final int SAFETY = 1;
+final int TRANSPORTATION = 2;
+final int INDUSTRY = 3;
+final int EDUCATION = 4;
+final int ENVIRONMENT = 5;
 
 void setup(){
+  //full screen size
   size(displayWidth, displayHeight);
+  //set default system state
+  currentState = HOME;
   //set default values for triangle starting point
   currentCatX = 50;
   currentCatY = 50;
@@ -59,6 +70,8 @@ void draw(){
 }
 
 void mouseClicked(){
-
+  int x = mouseX;
+  int y = mouseY;  
+  
   Ani.to(this, 1.0, "currentCatY", currentCatY+50);
 }
