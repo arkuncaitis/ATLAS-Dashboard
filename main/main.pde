@@ -57,10 +57,11 @@ void draw(){
   //update the weather information
   weather.update();
   //draw the atlanta skyline photo as the background
-  background(255);
-  image(skyline, 0, 0);
-  tint(backgroundOverlay, 100);
-  image(skyline, 0, 0);
+    //background(255);
+    //image(skyline, 0, 0);
+    //tint(backgroundOverlay, 100);
+    //image(skyline, 0, 0);
+  background(skyline);
   
   //HEADER
   noStroke();
@@ -78,8 +79,9 @@ void draw(){
   //NAVIGATION BAR
   //x, y, width values
   int navx = (70*displayWidth)/1024;
-  int navy = (120*displayWidth)/768;
-  int navw = (200*displayWidth)/1024;
+  //int navy = (120*displayWidth)/768;
+  int navy = headerHeight + ((25*displayHeight)/768);
+  int navw = (135*displayWidth)/1024;
   //calculate Height according to number of categories
   int categoryHeight = (90*displayHeight)/768;
   int categories = 5;
