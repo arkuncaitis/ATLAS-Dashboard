@@ -22,6 +22,15 @@ final int TRANSPORTATION = 2;
 final int INDUSTRY = 3;
 final int EDUCATION = 4;
 final int ENVIRONMENT = 5;
+//required gradient code constants: http://processing.org/examples/lineargradient.html
+int Y_AXIS = 1;
+int X_AXIS = 2;
+//COLORS
+color headerGradientc1 = color(145, 227, 133);
+color headerGradientc2 = color(186, 221, 139);
+color backgroundOverlay = color(0, 124, 255);
+color contentGradientc1 = color(20, 156, 217);
+color contentGradientc2 = color(63, 167, 217);
 
 void setup(){
   //full screen size
@@ -41,24 +50,22 @@ void setup(){
   Ani.init(this);
   //initialize weather settings for atlanta
   //2357024 = WOEID for Fulton County, Atlanta, GA
-  weather = new YahooWeather(this, 2357024, "f", updateIntervallMillis);
+  weather = new YahooWeather(this, 2357024, "f", 100);
 }
 
 void draw(){
   //update the weather information
   weather.update();
   //draw the atlanta skyline photo as the background
-  background(skyline);
+  background(255);
+  image(skyline, 0, 0);
+  tint(backgroundOverlay, 100);
+  image(skyline, 0, 0);
   
-  //CONTENT AREA
-  noStroke();
-  fill(255, 0, 0);
-  rect(100, 18, 1000, 600, 12);
-  triangle(currentCatX, currentCatY, 
-           currentCatX+50, currentCatY-25, 
-           currentCatX+50, currentCatY+25);
-           
   //HEADER
+  noStroke();
+  int headerHeight = (95*displayHeight)/768;
+  setGradient(0, 0, displayWidth, headerHeight, headerGradientc1, headerGradientc2, Y_AXIS);
   
   //get and display date
   SimpleDateFormat date = new SimpleDateFormat("EEEEE, MMMMM d");
@@ -67,6 +74,33 @@ void draw(){
   String displayDate = date.format(new Date());
   fill(0,0,0);
   text(displayDate, 500, 100);
+  
+  //NAVIGATION BAR
+  //x, y, width values
+  int navx = (70*displayWidth)/1024;
+  int navy = (120*displayWidth)/768;
+  int navw = (200*displayWidth)/1024;
+  //calculate Height according to number of categories
+  int categoryHeight = (90*displayHeight)/768;
+  int categories = 5;
+  int navh = categoryHeight * categories;
+  noStroke();
+  setGradient(navx, navy, navw, navh, contentGradientc1, contentGradientc2, Y_AXIS);
+  
+  //CONTENT AREA
+  noStroke();
+  fill(255, 0, 0);
+  //x, y, width, and height values for the rectangle background behind the main data content area
+  int contentx = (215*displayWidth)/1024;
+  //int contenty = (120*displayHeight)/768;
+  int contenty = navy;
+  int contentw = (720*displayWidth)/1024;
+  int contenth = (565*displayHeight)/768;
+  //rect(contentx, contenty, contentw, contenth);
+  setGradient(contentx, contenty, contentw, contenth, contentGradientc1, contentGradientc2, Y_AXIS);
+  triangle(currentCatX, currentCatY, 
+           currentCatX+50, currentCatY-25, 
+           currentCatX+50, currentCatY+25);
   
   //get and display time
   SimpleDateFormat time = new SimpleDateFormat("h:mm a");
@@ -82,4 +116,28 @@ void mouseClicked(){
   int y = mouseY;  
   
   Ani.to(this, 1.0, "currentCatY", currentCatY+50);
+}
+
+//Gradient Code
+//http://processing.org/examples/lineargradient.html
+void setGradient(int x, int y, float w, float h, color c1, color c2, int axis ) {
+
+  noFill();
+
+  if (axis == Y_AXIS) {  // Top to bottom gradient
+    for (int i = y; i <= y+h; i++) {
+      float inter = map(i, y, y+h, 0, 1);
+      color c = lerpColor(c1, c2, inter);
+      stroke(c);
+      line(x, i, x+w, i);
+    }
+  }  
+  else if (axis == X_AXIS) {  // Left to right gradient
+    for (int i = x; i <= x+w; i++) {
+      float inter = map(i, x, x+w, 0, 1);
+      color c = lerpColor(c1, c2, inter);
+      stroke(c);
+      line(i, y, i, y+h);
+    }
+  }
 }
