@@ -1,3 +1,4 @@
+import de.looksgood.ani.easing.*;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 import java.util.Date;
@@ -5,10 +6,15 @@ import de.looksgood.ani.*;
 import com.onformative.yahooweather.*;
 
 //size junk
+<<<<<<< HEAD
 int resolutionWidth = 1366;
 int resolutionHeight = 768;
 int displayWidth = 1366;
 int displayHeight = 642;
+=======
+int displayWidth = 1024;       
+int displayHeight = 768;                                   
+>>>>>>> c6dca6aa43d872d37d62dada1e51bb97dbcef343
 //X dimension for the currently selected category - 
 //X dimension of the left most point for moving triangle on navigation
 int currentCatX;
@@ -64,7 +70,11 @@ int navy, categorydisplayHeight;
 
 void setup(){
   //full screen size
+<<<<<<< HEAD
   size(1366, 742);
+=======
+  size(1024,768);   
+>>>>>>> c6dca6aa43d872d37d62dada1e51bb97dbcef343
   //set default system state
   currentState = HOME;
   //set default values for triangle starting point
@@ -80,12 +90,16 @@ void setup(){
   Ani.init(this);
   //initialize weather settings for atlanta
   //2357024 = WOEID for Fulton County, Atlanta, GA
-  weather = new YahooWeather(this, 2357024, "f", 100);
+  
+  
+  //weather = new YahooWeather(this, 2357024, "f", 100);                 uncomment before committing
 }
 
 void draw(){
   //update the weather information
-  weather.update();
+  
+  //weather.update();                                                uncomment before committing
+  
   //draw the atlanta skyline photo as the background
     //background(255);
     //image(skyline, 0, 0);
@@ -166,6 +180,10 @@ void draw(){
   triangle(currentCatX, currentCatY, 
            currentCatX+29, currentCatY-14, 
            currentCatX+29, currentCatY+14);
+           
+  /* added to display grid on Content Area*/
+  Safety safe = new Safety();
+  safe.drawPage();         
 }
 
 void mouseClicked(){
