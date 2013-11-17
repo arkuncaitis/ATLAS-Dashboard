@@ -66,7 +66,7 @@ PFont openSansSemi36 = createFont("Open Sans Semibold", 36);
 int navy, categorydisplayHeight;
 
 void setup(){
-  size(1366, 742);
+  size(1366, 642);
   //size(1024,768);   
   //set default system state
   currentState = SAFETY;
@@ -77,7 +77,7 @@ void setup(){
   skyline = loadImage("atlanta.jpg");
   //resizes the image to the size of the application
   //a background image must be the same size as the application, or a runtime error is thrown
-  skyline.resize(1366, 742);
+  skyline.resize(1366, 642);
   
   //Do not delete this line of code - initializes Ani animation library
   Ani.init(this);
@@ -111,13 +111,13 @@ void draw(){
   TimeZone tz = TimeZone.getTimeZone("US/Eastern");
   date.setTimeZone(tz);
   String displayDate = date.format(new Date());
+  textFont(openSansBold34);
   //x and y values for beginnging position
   int datew = (int)textWidth(displayDate);
   int datexend = displayWidth - ((20*displayWidth)/1024);
   int datex = datexend - datew;
   int datey = (40*displayHeight)/768;
   fill(blue1000c6);
-  textFont(openSansBold34);
   text(displayDate, datex, datey);
   
   //get and display time

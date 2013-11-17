@@ -1,3 +1,4 @@
+import de.looksgood.ani.easing.*;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 import java.util.Date;
@@ -9,6 +10,8 @@ int resolutionWidth = 1366;
 int resolutionHeight = 768;
 int displayWidth = 1366;
 int displayHeight = 642;
+//int displayWidth = 1024;       
+//int displayHeight = 768;                                   
 //X dimension for the currently selected category - 
 //X dimension of the left most point for moving triangle on navigation
 int currentCatX;
@@ -63,10 +66,10 @@ PFont openSansSemi36 = createFont("Open Sans Semibold", 36);
 int navy, categorydisplayHeight;
 
 void setup(){
-  //full screen size
-  size(1366, 742);
+  size(1366, 642);
+  //size(1024,768);   
   //set default system state
-  currentState = HOME;
+  currentState = SAFETY;
   //set default values for triangle starting point
   currentCatX = 185;
   currentCatY = 128;
@@ -74,18 +77,21 @@ void setup(){
   skyline = loadImage("atlanta.jpg");
   //resizes the image to the size of the application
   //a background image must be the same size as the application, or a runtime error is thrown
-  skyline.resize(1366, 742);
+  skyline.resize(1366, 642);
   
   //Do not delete this line of code - initializes Ani animation library
   Ani.init(this);
   //initialize weather settings for atlanta
   //2357024 = WOEID for Fulton County, Atlanta, GA
+  
+  
   weather = new YahooWeather(this, 2357024, "f", 100);
 }
 
 void draw(){
   //update the weather information
   weather.update();
+  
   //draw the atlanta skyline photo as the background
     //background(255);
     //image(skyline, 0, 0);
@@ -105,13 +111,13 @@ void draw(){
   TimeZone tz = TimeZone.getTimeZone("US/Eastern");
   date.setTimeZone(tz);
   String displayDate = date.format(new Date());
+  textFont(openSansBold34);
   //x and y values for beginnging position
   int datew = (int)textWidth(displayDate);
-  int datexend = displayWidth - ((20*displayWidth)/768);
+  int datexend = displayWidth - ((20*displayWidth)/1024);
   int datex = datexend - datew;
   int datey = (40*displayHeight)/768;
   fill(blue1000c6);
-  textFont(openSansBold34);
   text(displayDate, datex, datey);
   
   //get and display time
@@ -166,6 +172,10 @@ void draw(){
   triangle(currentCatX, currentCatY, 
            currentCatX+29, currentCatY-14, 
            currentCatX+29, currentCatY+14);
+           
+  /* added to display grid on Content Area*/
+  Safety safe = new Safety();
+  safe.drawPage();         
 }
 
 void mouseClicked(){
