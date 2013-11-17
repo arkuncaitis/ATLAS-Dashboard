@@ -6,15 +6,12 @@ import de.looksgood.ani.*;
 import com.onformative.yahooweather.*;
 
 //size junk
-<<<<<<< HEAD
 int resolutionWidth = 1366;
 int resolutionHeight = 768;
 int displayWidth = 1366;
 int displayHeight = 642;
-=======
-int displayWidth = 1024;       
-int displayHeight = 768;                                   
->>>>>>> c6dca6aa43d872d37d62dada1e51bb97dbcef343
+//int displayWidth = 1024;       
+//int displayHeight = 768;                                   
 //X dimension for the currently selected category - 
 //X dimension of the left most point for moving triangle on navigation
 int currentCatX;
@@ -69,14 +66,10 @@ PFont openSansSemi36 = createFont("Open Sans Semibold", 36);
 int navy, categorydisplayHeight;
 
 void setup(){
-  //full screen size
-<<<<<<< HEAD
   size(1366, 742);
-=======
-  size(1024,768);   
->>>>>>> c6dca6aa43d872d37d62dada1e51bb97dbcef343
+  //size(1024,768);   
   //set default system state
-  currentState = HOME;
+  currentState = SAFETY;
   //set default values for triangle starting point
   currentCatX = 185;
   currentCatY = 128;
@@ -92,13 +85,12 @@ void setup(){
   //2357024 = WOEID for Fulton County, Atlanta, GA
   
   
-  //weather = new YahooWeather(this, 2357024, "f", 100);                 uncomment before committing
+  weather = new YahooWeather(this, 2357024, "f", 100);
 }
 
 void draw(){
   //update the weather information
-  
-  //weather.update();                                                uncomment before committing
+  weather.update();
   
   //draw the atlanta skyline photo as the background
     //background(255);
@@ -121,7 +113,7 @@ void draw(){
   String displayDate = date.format(new Date());
   //x and y values for beginnging position
   int datew = (int)textWidth(displayDate);
-  int datexend = displayWidth - ((20*displayWidth)/768);
+  int datexend = displayWidth - ((20*displayWidth)/1024);
   int datex = datexend - datew;
   int datey = (40*displayHeight)/768;
   fill(blue1000c6);

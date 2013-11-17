@@ -61,7 +61,7 @@ void setup(){
   //full screen size
   size(width, height);
   //set default system state
-  currentState = HOME;
+  currentState = SAFETY;
   //set default values for triangle starting point
   currentCatX = 185;
   currentCatY = 128;
@@ -159,6 +159,21 @@ void draw(){
   triangle(currentCatX, currentCatY, 
            currentCatX+29, currentCatY-14, 
            currentCatX+29, currentCatY+14);
+ 
+ switch(currentState){
+   case HOME:
+     break;
+   case SAFETY:
+     Safety safetyPage = new Safety();
+     safetyPage.drawPage();
+     break;
+   case TRANSPORTATION:
+     break;
+   case EDUCATION:
+     break;
+   case ENVIRONMENT:
+     break;
+ }
 }
 
 void mouseClicked(){
