@@ -161,10 +161,24 @@ void draw(){
   noStroke();
   setGradient(navx, navy, navw, navh, blue006fe6, blue00b1d3, Y_AXIS);
   stroke(blue00b1d3);
-  line(navy,navy+categorydisplayHeight, 50+navw, navy+categorydisplayHeight);
-  line(navy, navy+categorydisplayHeight*2, 50+navw, navy+categorydisplayHeight*2);
-  line(navy,navy+categorydisplayHeight*3, 50+navw, navy+categorydisplayHeight*3);
-  line(navy,navy+categorydisplayHeight*4, 50+navw, navy+categorydisplayHeight*4);
+  line(navx,navy+categorydisplayHeight, navx+navw, navy+categorydisplayHeight);
+  line(navx, navy+categorydisplayHeight*2, navx+navw, navy+categorydisplayHeight*2);
+  line(navx,navy+categorydisplayHeight*3, navx+navw, navy+categorydisplayHeight*3);
+  line(navx,navy+categorydisplayHeight*4, navx+navw, navy+categorydisplayHeight*4);
+  //Draw catgory text
+  textFont(openSansSemi14);
+  textAlign(CENTER);
+  fill(0,0,0);
+  int cat1y = navy + categorydisplayHeight - 17;
+  text("SAFETY", navx - 20, cat1y, navx + navw - 20, navy + categorydisplayHeight);
+  int cat2y = navy + (2*categorydisplayHeight) - 17;
+  text("TRANSPORTATION", navx - 20, cat2y, navx + navw - 20, navy + (2*categorydisplayHeight));
+  int cat3y = navy + (3*categorydisplayHeight) - 17;
+  text("INDUSTRY", navx - 20, cat3y, navx + navw - 20, navy + (3*categorydisplayHeight));
+  int cat4y = navy + (4*categorydisplayHeight) - 17;
+  text("EDUCATION", navx - 20, cat4y, navx + navw - 20, navy + (4*categorydisplayHeight));
+  int cat5y = navy + (5*categorydisplayHeight) - 17;
+  text("ENVIRONMENT", navx - 20, cat5y, navx + navw - 20, navy + (5*categorydisplayHeight));
   
   //CONTENT AREA
   noStroke();
@@ -183,11 +197,28 @@ void draw(){
   currentCatY = navy + ((int)(.5*categorydisplayHeight));
   triangle(currentCatX, currentCatY, 
            contentx, currentCatY-14, 
-           contentx, currentCatY+14);
-           
-  /* added to display grid on Content Area*/
-  Safety safe = new Safety();
-  safe.drawPage();         
+           contentx, currentCatY+14);  
+
+  //change page information
+  switch(currentState){
+   case HOME:
+     Home home = new Home();
+     break;
+   case SAFETY:
+   /* added to display grid on Content Area*/
+    Safety safe = new Safety();
+    safe.drawPage();  
+     break;
+   case TRANSPORTATION:
+     break;
+   case INDUSTRY:
+     break;
+   case EDUCATION:
+     break;
+   case ENVIRONMENT:
+     break;
+  }
+  
 }
 
 void mouseClicked(){
