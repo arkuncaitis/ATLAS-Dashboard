@@ -29,6 +29,9 @@ public class main extends PApplet {
 
 
 
+//size junk
+int displayWidth = 1024;
+int displayHeight = 768;
 //X dimension for the currently selected category - 
 //X dimension of the left most point for moving triangle on navigation
 int currentCatX;
@@ -65,6 +68,7 @@ int green71ca5e = color(113, 202, 94);
 int greenaeda79 = color(174, 218, 121);
 int blue00bfd5 = color(0, 191, 213);
 int green64c770 = color(100, 199, 112);
+int black = color(0,0,0);
 
 //FONTS
 /*PFont openSansBold14 = loadFont("OpenSans-Bold-14.vlw");
@@ -78,19 +82,22 @@ PFont openSansBold50 = createFont("Open Sans Bold", 50);
 PFont openSansSemi14 = createFont("Open Sans Semibold", 14);
 PFont openSansSemi36 = createFont("Open Sans Semibold", 36);
 
+//Navigation bar variables needed for mouseClicked()
+int navy, categorydisplayHeight;
+
 public void setup(){
   //full screen size
   size(1024, 768);
   //set default system state
   currentState = HOME;
   //set default values for triangle starting point
-  currentCatX = 50;
-  currentCatY = 50;
+  currentCatX = 185;
+  currentCatY = 128;
   //init skyline
   skyline = loadImage("atlanta.jpg");
   //resizes the image to the size of the application
   //a background image must be the same size as the application, or a runtime error is thrown
-  skyline.resize(1024, 768);
+  skyline.resize(displayWidth, displayHeight);
   
   //Do not delete this line of code - initializes Ani animation library
   Ani.init(this);
@@ -111,8 +118,8 @@ public void draw(){
   
   //HEADER
   noStroke();
-  int headerHeight = 95;
-  setGradient(0, 0, 1024, headerHeight, green64c770, greenaeda79, Y_AXIS);
+  int headerdisplayHeight = (95*displayHeight)/768;
+  setGradient(0, 0, displayWidth, headerdisplayHeight, green64c770, greenaeda79, Y_AXIS);
   
   //get and display date
   SimpleDateFormat date = new SimpleDateFormat("EEEEE, MMMMM d");
@@ -121,9 +128,9 @@ public void draw(){
   String displayDate = date.format(new Date());
   //x and y values for beginnging position
   int datew = (int)textWidth(displayDate);
-  int datexend = 1024 - 20;
+  int datexend = displayWidth - ((20*displayWidth)/768);
   int datex = datexend - datew;
-  int datey = 40;
+  int datey = (40*displayHeight)/768;
   fill(blue1000c6);
   textFont(openSansBold34);
   text(displayDate, datex, datey);
@@ -141,47 +148,148 @@ public void draw(){
   text(displayTime, timex, timey);
   
   //Atlanta text background
-  int atlBackw = 305;
-  int atlBackh = 75;
-  setGradient(0, datey, atlBackw, atlBackh, blue0052aa, blue006fe6, X_AXIS);
+  int atlBackw = (305*displayWidth)/1024;
+  int atlBackh = (75*displayHeight)/768;
+  setGradient(5, datey-25, atlBackw, atlBackh, blue0052aa, blue006fe6, X_AXIS);
   int atlx;
   int atly;
   
   //NAVIGATION BAR
-  //x, y, width values
-  int navx = 70;
+  //x, y, displayWidth values
+  int navx = (50*displayWidth)/1024;  
   //int navy = (120*displayWidth)/768;
-  int navy = headerHeight + 25;
-  int navw = 135;
-  //calculate Height according to number of categories
-  int categoryHeight = 90;
+  navy = headerdisplayHeight + ((25*displayHeight)/768);  //was int navy =...
+  int navw = (135*displayWidth)/1024; 
+  //calculate displayHeight according to number of categories
+  categorydisplayHeight = (90*displayHeight)/768; //was int categorydisplayHeight =...
   int categories = 5;
-  int navh = categoryHeight * categories;
+  int navh = categorydisplayHeight * categories; 
   noStroke();
   setGradient(navx, navy, navw, navh, blue006fe6, blue00b1d3, Y_AXIS);
+  stroke(black);
+  line(50,navy+categorydisplayHeight, 50+navw, navy+categorydisplayHeight);
+  line(50, navy+categorydisplayHeight*2, 50+navw, navy+categorydisplayHeight*2);
+  line(50,navy+categorydisplayHeight*3, 50+navw, navy+categorydisplayHeight*3);
+  line(50,navy+categorydisplayHeight*4, 50+navw, navy+categorydisplayHeight*4);
   
   //CONTENT AREA
   noStroke();
   fill(255, 0, 0);
-  //x, y, width, and height values for the rectangle background behind the main data content area
-  int contentx = 215;
+  //x, y, displayWidth, and displayHeight values for the rectangle background behind the main data content area
+  int contentx = (215*displayWidth)/1024;
   //int contenty = (120*displayHeight)/768;
   int contenty = navy;
-  int contentw = 720;
-  int contenth = 565;
+  int contentw = (720*displayWidth)/1024;
+  int contenth = (565*displayHeight)/768; //=441
   //rect(contentx, contenty, contentw, contenth);
   setGradient(contentx, contenty, contentw, contenth, blue006fe6, blue00b1d3, Y_AXIS);
+  fill(blue006fe6);
   triangle(currentCatX, currentCatY, 
-           currentCatX+50, currentCatY-25, 
-           currentCatX+50, currentCatY+25);
+           currentCatX+29, currentCatY-14, 
+           currentCatX+29, currentCatY+14);
 }
 
 public void mouseClicked(){
   int x = mouseX;
-  int y = mouseY;  
+  int y = mouseY;
   
-  Ani.to(this, 1.0f, "currentCatY", currentCatY+50);
-}
+  if(x < 50+navy && x>50 && y>navy+categorydisplayHeight && y<navy+categorydisplayHeight*2){ //click on first category
+    if(currentCatY >navy+categorydisplayHeight && currentCatY<navy+categorydisplayHeight*2){
+      Ani.to(this, 1.0f, "currentCatY", currentCatY+70);
+      currentCatY +=70;
+    }
+    else if(currentCatY >navy+categorydisplayHeight*2 && currentCatY<navy+categorydisplayHeight*3){
+      Ani.to(this, 1.0f, "currentCatY", currentCatY+70*2);
+      currentCatY += 70*2;
+    }
+    else if(currentCatY >navy+categorydisplayHeight*3 && currentCatY<navy+categorydisplayHeight*4){
+      Ani.to(this, 1.0f, "currentCatY", currentCatY+70*3);
+      currentCatY += 70*3;
+    }
+    else if(currentCatY >navy+categorydisplayHeight*4 && currentCatY<navy+categorydisplayHeight*5){
+      Ani.to(this, 1.0f, "currentCatY", currentCatY+70*4);
+      currentCatY += 70*4;
+    }
+  }//end click first category
+  
+  else if(x < 50+navy && x>50 && y>navy+categorydisplayHeight*2 && y<navy+categorydisplayHeight*3){ //click 2nd category
+    if(currentCatY >navy && currentCatY<navy+categorydisplayHeight){
+      Ani.to(this, 1.0f, "currentCatY", currentCatY-70);
+      currentCatY -= 70;
+    }
+    else if(currentCatY >navy+categorydisplayHeight*2 && currentCatY<navy+categorydisplayHeight*3){
+      Ani.to(this, 1.0f, "currentCatY", currentCatY+70);
+      currentCatY += 70;
+    }
+    else if(currentCatY >navy+categorydisplayHeight*3 && currentCatY<navy+categorydisplayHeight*4){
+      Ani.to(this, 1.0f, "currentCatY", currentCatY+70*2);
+      currentCatY += 70*2;
+    }
+    else if(currentCatY >navy+categorydisplayHeight*4 && currentCatY<navy+categorydisplayHeight*5){
+      Ani.to(this, 1.0f, "currentCatY", currentCatY+70*3);
+      currentCatY += 70*3;
+    }
+  }//end click on second category
+  
+  else if(x < 50+navy && x>50 && y>navy+categorydisplayHeight*3 && y<navy+categorydisplayHeight*4){//click on third category
+    if(currentCatY >navy && currentCatY<navy+categorydisplayHeight){
+      Ani.to(this, 1.0f, "currentCatY", currentCatY-70*2);
+      currentCatY -= 70*2;
+    }
+    else if(currentCatY >navy+categorydisplayHeight && currentCatY<navy+categorydisplayHeight*2){
+      Ani.to(this, 1.0f, "currentCatY", currentCatY-70);
+      currentCatY -= 70;
+    }
+    else if(currentCatY >navy+categorydisplayHeight*3 && currentCatY<navy+categorydisplayHeight*4){
+      Ani.to(this, 1.0f, "currentCatY", currentCatY+70);
+      currentCatY += 70;
+    }
+    else if(currentCatY >navy+categorydisplayHeight*4 && currentCatY<navy+categorydisplayHeight*5){
+      Ani.to(this, 1.0f, "currentCatY", currentCatY+70*2);
+      currentCatY += 70*2;
+    }
+  }//end click on third category
+  
+  else if(x < 50+navy && x>50 && y>navy+categorydisplayHeight*4 && y<navy+categorydisplayHeight*5){//click on 4th category
+    if(currentCatY >navy && currentCatY<navy+categorydisplayHeight){
+      Ani.to(this, 1.0f, "currentCatY", currentCatY-70*3);
+      currentCatY -= 70*3;
+    }
+    else if(currentCatY >navy+categorydisplayHeight && currentCatY<navy+categorydisplayHeight*2){
+      Ani.to(this, 1.0f, "currentCatY", currentCatY-70*2);
+      currentCatY -= 70*2;
+    }
+    else if(currentCatY >navy+categorydisplayHeight*2 && currentCatY<navy+categorydisplayHeight*3){
+      Ani.to(this, 1.0f, "currentCatY", currentCatY-70);
+      currentCatY -= 70;
+    }
+    else if(currentCatY >navy+categorydisplayHeight*4 && currentCatY<navy+categorydisplayHeight*5){
+      Ani.to(this, 1.0f, "currentCatY", currentCatY+70);
+      currentCatY += 70;
+    }
+  }//end click on fourth category
+  
+  else if(x < 50+navy && x>50 && y>navy+categorydisplayHeight*5 && y<navy+categorydisplayHeight*6){ //click on 5th category
+    if(currentCatY >navy && currentCatY<navy+categorydisplayHeight){
+      Ani.to(this, 1.0f, "currentCatY", currentCatY-70*4);
+      currentCatY -= 70*4;
+    }
+    else if(currentCatY >navy+categorydisplayHeight && currentCatY<navy+categorydisplayHeight*2){
+      Ani.to(this, 1.0f, "currentCatY", currentCatY-70*3);
+      currentCatY -= 70*3;
+    }
+    else if(currentCatY >navy+categorydisplayHeight*2 && currentCatY<navy+categorydisplayHeight*3){
+      Ani.to(this, 1.0f, "currentCatY", currentCatY-70*2);
+      currentCatY -= 70*2;
+    }
+    else if(currentCatY >navy+categorydisplayHeight*3 && currentCatY<navy+categorydisplayHeight*4){
+      Ani.to(this, 1.0f, "currentCatY", currentCatY-70);
+      currentCatY -= 70;
+    }
+  }//end click on fifth category
+  
+  //Ani.to(this, 1.0, "currentCatY", currentCatY+70);
+}//end mouseClicked()
 
 //Gradient Code
 //http://processing.org/examples/lineargradient.html
@@ -205,6 +313,29 @@ public void setGradient(int x, int y, float w, float h, int c1, int c2, int axis
       line(i, y, i, y+h);
     }
   }
+}
+public class Home{
+  
+  public Home(){
+    
+  }
+  
+  public void drawPage(){
+    
+  }
+  
+}
+//class representing the webpage for the Safety category
+public class Safety{
+  
+ public Safety(){
+   
+ }
+ 
+ public void drawPage(){
+   
+ }
+  
 }
   static public void main(String args[]) {
     PApplet.main(new String[] { "--present", "--bgcolor=#666666", "--hide-stop", "main" });
