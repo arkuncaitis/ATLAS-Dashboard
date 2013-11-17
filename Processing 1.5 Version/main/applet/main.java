@@ -30,8 +30,10 @@ public class main extends PApplet {
 
 
 //size junk
-int displayWidth = 1024;
-int displayHeight = 768;
+int resolutionWidth = 1366;
+int resolutionHeight = 768;
+int displayWidth = 1366;
+int displayHeight = 642;
 //X dimension for the currently selected category - 
 //X dimension of the left most point for moving triangle on navigation
 int currentCatX;
@@ -87,7 +89,7 @@ int navy, categorydisplayHeight;
 
 public void setup(){
   //full screen size
-  size(1024, 768);
+  size(1366, 742);
   //set default system state
   currentState = HOME;
   //set default values for triangle starting point
@@ -97,7 +99,7 @@ public void setup(){
   skyline = loadImage("atlanta.jpg");
   //resizes the image to the size of the application
   //a background image must be the same size as the application, or a runtime error is thrown
-  skyline.resize(displayWidth, displayHeight);
+  skyline.resize(1366, 742);
   
   //Do not delete this line of code - initializes Ani animation library
   Ani.init(this);
@@ -115,6 +117,8 @@ public void draw(){
     //tint(backgroundOverlay, 100);
     //image(skyline, 0, 0);
   background(skyline);
+//background(255);
+//image(skyline, 0, 0);
   
   //HEADER
   noStroke();
