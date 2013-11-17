@@ -59,7 +59,7 @@ int navy, categoryHeight;
 
 void setup(){
   //full screen size
-  size(displayWidth, displayHeight);
+  size(width, height);
   //set default system state
   currentState = HOME;
   //set default values for triangle starting point
@@ -69,7 +69,7 @@ void setup(){
   skyline = loadImage("atlanta.jpg");
   //resizes the image to the size of the application
   //a background image must be the same size as the application, or a runtime error is thrown
-  skyline.resize(displayWidth, displayHeight);
+  skyline.resize(width, height);
   
   //Do not delete this line of code - initializes Ani animation library
   Ani.init(this);
@@ -90,8 +90,8 @@ void draw(){
   
   //HEADER
   noStroke();
-  int headerHeight = (95*displayHeight)/768;
-  setGradient(0, 0, displayWidth, headerHeight, green64c770, greenaeda79, Y_AXIS);
+  int headerHeight = (95*height)/768;
+  setGradient(0, 0, width, headerHeight, green64c770, greenaeda79, Y_AXIS);
   
   //get and display date
   SimpleDateFormat date = new SimpleDateFormat("EEEEE, MMMMM d");
@@ -100,9 +100,9 @@ void draw(){
   String displayDate = date.format(new Date());
   //x and y values for beginnging position
   int datew = (int)textWidth(displayDate);
-  int datexend = displayWidth - ((20*displayWidth)/768);
+  int datexend = width - ((20*width)/768);
   int datex = datexend - datew;
-  int datey = (40*displayHeight)/768;
+  int datey = (40*height)/768;
   fill(blue1000c6);
   textFont(openSansBold34);
   text(displayDate, datex, datey);
@@ -120,20 +120,20 @@ void draw(){
   text(displayTime, timex, timey);
   
   //Atlanta text background
-  int atlBackw = (305*displayWidth)/1024;
-  int atlBackh = (75*displayHeight)/768;
+  int atlBackw = (305*width)/1024;
+  int atlBackh = (75*height)/768;
   setGradient(5, datey-25, atlBackw, atlBackh, blue0052aa, blue006fe6, X_AXIS);
   int atlx;
   int atly;
   
   //NAVIGATION BAR
   //x, y, width values
-  int navx = (50*displayWidth)/1024;  
-  //int navy = (120*displayWidth)/768;
-  navy = headerHeight + ((25*displayHeight)/768);  //was int navy =...
-  int navw = (135*displayWidth)/1024; 
+  int navx = (50*width)/1024;  
+  //int navy = (120*width)/768;
+  navy = headerHeight + ((25*height)/768);  //was int navy =...
+  int navw = (135*width)/1024; 
   //calculate Height according to number of categories
-  categoryHeight = (90*displayHeight)/768; //was int categoryHeight =...
+  categoryHeight = (90*height)/768; //was int categoryHeight =...
   int categories = 5;
   int navh = categoryHeight * categories; 
   noStroke();
@@ -148,11 +148,11 @@ void draw(){
   noStroke();
   fill(255, 0, 0);
   //x, y, width, and height values for the rectangle background behind the main data content area
-  int contentx = (215*displayWidth)/1024;
-  //int contenty = (120*displayHeight)/768;
+  int contentx = (215*width)/1024;
+  //int contenty = (120*height)/768;
   int contenty = navy;
-  int contentw = (720*displayWidth)/1024;
-  int contenth = (565*displayHeight)/768; //=441
+  int contentw = (720*width)/1024;
+  int contenth = (565*height)/768; //=441
   //rect(contentx, contenty, contentw, contenth);
   setGradient(contentx, contenty, contentw, contenth, blue006fe6, blue00b1d3, Y_AXIS);
   fill(blue006fe6);

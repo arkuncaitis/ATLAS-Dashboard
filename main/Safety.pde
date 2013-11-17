@@ -6,7 +6,6 @@ public class Safety{
  public Safety(){
    
    //populate data table for Fire subcategory
-   fireData = new Table();
      //columns
    fireData.addColumn("title");
    fireData.addColumn("isPercent");
