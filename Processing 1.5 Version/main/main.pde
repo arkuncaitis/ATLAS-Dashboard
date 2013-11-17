@@ -70,9 +70,6 @@ void setup(){
   //size(1024,768);   
   //set default system state
   currentState = SAFETY;
-  //set default values for triangle starting point
-  currentCatX = 185;
-  currentCatY = 128;
   //init skyline
   skyline = loadImage("atlanta.jpg");
   //resizes the image to the size of the application
@@ -135,9 +132,21 @@ void draw(){
   //Atlanta text background
   int atlBackw = (305*displayWidth)/1024;
   int atlBackh = (75*displayHeight)/768;
-  setGradient(5, datey-25, atlBackw, atlBackh, blue0052aa, blue006fe6, X_AXIS);
-  int atlx;
-  int atly;
+  setGradient(0, datey - 25, atlBackw, atlBackh, blue0052aa, blue006fe6, X_AXIS);
+  int atlx = 5;
+  PImage atl = loadImage("header.png");
+  image(atl, atlx, datey - 25);
+  
+  //Weather
+  int temperature = weather.getTemperature();
+  int temperaturex = atlBackw + 25;
+  int temperaturey = datey;
+  noStroke();
+  fill(greenaeda79);
+  int temperatureBackw = (215*displayWidth)/1024;
+  rect(atlBackw, datey-25, temperatureBackw, atlBackh);
+  fill(blue1000c6);
+  text(temperature, temperaturex, temperaturey);
   
   //NAVIGATION BAR
   //x, y, displayWidth values
@@ -151,11 +160,11 @@ void draw(){
   int navh = categorydisplayHeight * categories; 
   noStroke();
   setGradient(navx, navy, navw, navh, blue006fe6, blue00b1d3, Y_AXIS);
-  stroke(black);
-  line(50,navy+categorydisplayHeight, 50+navw, navy+categorydisplayHeight);
-  line(50, navy+categorydisplayHeight*2, 50+navw, navy+categorydisplayHeight*2);
-  line(50,navy+categorydisplayHeight*3, 50+navw, navy+categorydisplayHeight*3);
-  line(50,navy+categorydisplayHeight*4, 50+navw, navy+categorydisplayHeight*4);
+  stroke(blue00b1d3);
+  line(navy,navy+categorydisplayHeight, 50+navw, navy+categorydisplayHeight);
+  line(navy, navy+categorydisplayHeight*2, 50+navw, navy+categorydisplayHeight*2);
+  line(navy,navy+categorydisplayHeight*3, 50+navw, navy+categorydisplayHeight*3);
+  line(navy,navy+categorydisplayHeight*4, 50+navw, navy+categorydisplayHeight*4);
   
   //CONTENT AREA
   noStroke();
@@ -168,10 +177,13 @@ void draw(){
   int contenth = (565*displayHeight)/768; //=441
   //rect(contentx, contenty, contentw, contenth);
   setGradient(contentx, contenty, contentw, contenth, blue006fe6, blue00b1d3, Y_AXIS);
+  noStroke();
   fill(blue006fe6);
+  currentCatX = contentx - 29;
+  currentCatY = navy + ((int)(.5*categorydisplayHeight));
   triangle(currentCatX, currentCatY, 
-           currentCatX+29, currentCatY-14, 
-           currentCatX+29, currentCatY+14);
+           contentx, currentCatY-14, 
+           contentx, currentCatY+14);
            
   /* added to display grid on Content Area*/
   Safety safe = new Safety();
