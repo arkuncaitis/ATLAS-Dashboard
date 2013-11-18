@@ -109,7 +109,7 @@ void draw(){
   int datex = datexend - datew;
   int datey = (40*displayHeight)/768;
   fill(blue1000c6);
-  text(displayDate, datex, datey);
+  text(displayDate, datex + 110, datey);
   //get and display time
   SimpleDateFormat time = new SimpleDateFormat("h:mm a");
   //TimeZone tz = TimeZone.getTimeZone("US/Eastern");
