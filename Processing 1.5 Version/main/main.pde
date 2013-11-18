@@ -8,8 +8,8 @@ import de.looksgood.ani.*;
 //instance of weather library
 YahooWeather weather;
 //size junk
-int resolutionWidth = 1366;
-int resolutionHeight = 768;
+//int resolutionWidth = 1366;
+//int resolutionHeight = 768;
 int displayWidth = 1366;
 int displayHeight = 642;
 //int displayWidth = 1024;       
@@ -92,12 +92,7 @@ void setup(){
 void draw(){
   //update the weather information
   weather.update();
-  
   //draw the atlanta skyline photo as the background
-    //background(255);
-    //image(skyline, 0, 0);
-    //tint(backgroundOverlay, 100);
-    //image(skyline, 0, 0);
   background(skyline);
 //background(255);
 //image(skyline, 0, 0);
@@ -133,11 +128,7 @@ void draw(){
   //Atlanta text background
   int atlBackw = (305*displayWidth)/1366;
   int atlBackh = (75*displayHeight)/642;
-  setGradient(5, datey-25, atlBackw, atlBackh, blue0052aa, blue006fe6, X_AXIS);
-
-  //int atlBackw = (305*displayWidth)/1024;
-  //int atlBackh = (75*displayHeight)/768;
-
+  //setGradient(5, datey-25, atlBackw, atlBackh, blue0052aa, blue006fe6, X_AXIS);
   setGradient(0, datey - 25, atlBackw, atlBackh, blue0052aa, blue006fe6, X_AXIS);
   int atlx = 5;
   //ATLANTA header image with seal
@@ -147,7 +138,7 @@ void draw(){
   noStroke();
   fill(greenaeda79);
   int temperatureBackw = (215*displayWidth)/1024;
-  rect(atlBackw, datey-25, temperatureBackw, atlBackh);
+  rect(atlBackw + 1, datey-25, temperatureBackw, atlBackh + 1);
   int temperature = weather.getTemperature();
   int temperaturex = atlBackw + temperatureBackw - 25;
   int temperaturey = datey + (atlBackh/2) - 13;
@@ -251,9 +242,11 @@ void draw(){
   fill(blue006fe6);
   currentCatX = contentx - 29;
   //currentCatY = navy + ((int)(.5*categorydisplayHeight));
-  triangle(currentCatX, currentCatY, 
-           contentx, currentCatY-14, 
-           contentx, currentCatY+14);  
+  if(currentState != HOME){
+    triangle(currentCatX, currentCatY, 
+             contentx, currentCatY-14, 
+             contentx, currentCatY+14);
+  }  
   
   //FOOTER
   //int footerEndY = displayHeight - ((25*displayHeight)/768);
