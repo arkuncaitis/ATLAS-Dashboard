@@ -18,8 +18,6 @@ int currentCatX;
 //Y dimension for the currently selected catgory - 
 //Y dimension of left most point for moving triangle on navigation
 int currentCatY;
-//ATL Skyline image
-PImage skyline;
 //instance of weather library
 YahooWeather weather;
 //Mock State Machine variables for navigation bar
@@ -62,6 +60,10 @@ PFont openSansBold50 = createFont("Open Sans Bold", 50);
 PFont openSansSemi14 = createFont("Open Sans Semibold", 14);
 PFont openSansSemi36 = createFont("Open Sans Semibold", 36);
 
+//IMAGES
+//ATL Skyline image
+PImage skyline;
+
 //Navigation bar variables needed for mouseClicked()
 int navy, categorydisplayHeight;
 
@@ -102,7 +104,6 @@ void draw(){
   noStroke();
   int headerdisplayHeight = (95*displayHeight)/768;
   setGradient(0, 0, displayWidth, headerdisplayHeight, green64c770, greenaeda79, Y_AXIS);
-  
   //get and display date
   SimpleDateFormat date = new SimpleDateFormat("EEEEE, MMMMM d");
   TimeZone tz = TimeZone.getTimeZone("US/Eastern");
@@ -116,7 +117,6 @@ void draw(){
   int datey = (40*displayHeight)/768;
   fill(blue1000c6);
   text(displayDate, datex, datey);
-  
   //get and display time
   SimpleDateFormat time = new SimpleDateFormat("h:mm a");
   //TimeZone tz = TimeZone.getTimeZone("US/Eastern");
@@ -128,15 +128,14 @@ void draw(){
   int timey = datey + 30;
   fill(blue1000c6);
   text(displayTime, timex, timey);
-  
   //Atlanta text background
   int atlBackw = (305*displayWidth)/1024;
   int atlBackh = (75*displayHeight)/768;
   setGradient(0, datey - 25, atlBackw, atlBackh, blue0052aa, blue006fe6, X_AXIS);
   int atlx = 5;
+  //ATLANTA header image with seal
   PImage atl = loadImage("header.png");
   image(atl, atlx, datey - 25);
-  
   //Weather
   int temperature = weather.getTemperature();
   int temperaturex = atlBackw + 25;
@@ -179,6 +178,17 @@ void draw(){
   text("EDUCATION", navx - 20, cat4y, navx + navw - 20, navy + (4*categorydisplayHeight));
   int cat5y = navy + (5*categorydisplayHeight) - 17;
   text("ENVIRONMENT", navx - 20, cat5y, navx + navw - 20, navy + (5*categorydisplayHeight));
+  //icons
+  PImage safetyIcon = loadImage("safetyIcon.png");
+  PImage carIcon = loadImage("carIcon.png");
+  PImage industryIcon = loadImage("industryIcon.png");
+  PImage bookIcon = loadImage("bookIcon.png");
+  PImage environmentIcon = loadImage("environmentIcon.png");
+  image(safetyIcon, navx + (navw/2) - 30, navy + (categorydisplayHeight/2) - 34);
+  image(carIcon, navx + (navw/2) - 30, navy + categorydisplayHeight + (categorydisplayHeight/2) - 34);
+  image(industryIcon, navx + (navw/2) - 30,  navy + (2*categorydisplayHeight) + (categorydisplayHeight/2) - 34);
+  image(bookIcon, navx + (navw/2) - 30,  navy + (3*categorydisplayHeight) + (categorydisplayHeight/2) - 34);
+  image(environmentIcon, navx + (navw/2) - 30,  navy + (4*categorydisplayHeight) + (categorydisplayHeight/2) - 34);
   
   //CONTENT AREA
   noStroke();
