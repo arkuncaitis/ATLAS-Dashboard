@@ -226,6 +226,22 @@ void draw(){
      break;
   }
   
+  //FOOTER
+  //int footerEndY = displayHeight - ((25*displayHeight)/768);
+  int footerh = (35*displayHeight)/768;
+  int footerSpace = displayHeight - (contenty + contenth);
+  int footery = displayHeight - (footerSpace/2) - (footerh/2);
+  setGradient(0, footery, displayWidth, footerh, greenaeda79, green64c770, Y_AXIS);
+  int footerTxtY = footery + (footerh/2) + 7;
+  textFont(openSansSemi14);
+  fill(0, 0, 0);
+  text("Copyright 2013 City of Atlanta, GA. All Rights Reserved", navx + 185, footerTxtY);
+  String links = "Safety/Transportation/Industry/Education/Environment";
+  int linksw = (int)textWidth(links);
+  int rightSideSpace = displayWidth - (contentx + contentw);
+  int footerLinksX = displayWidth - rightSideSpace - (linksw/2);
+  text(links, footerLinksX, footerTxtY);
+  
 }
 
 void mouseClicked(){
