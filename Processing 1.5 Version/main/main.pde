@@ -109,7 +109,7 @@ void draw(){
   int datex = datexend - datew;
   int datey = (40*displayHeight)/642;
   fill(blue1000c6);
-  text(displayDate, datex + 110, datey);
+  text(displayDate, datex + 125, datey);
   //get and display time
   SimpleDateFormat time = new SimpleDateFormat("h:mm a");
   //TimeZone tz = TimeZone.getTimeZone("US/Eastern");
@@ -122,13 +122,6 @@ void draw(){
   fill(blue1000c6);
   text(displayTime, timex, timey);
   //Atlanta text background
-<<<<<<< HEAD
-  int atlBackw = (305*displayWidth)/1366;
-  int atlBackh = (75*displayHeight)/642;
-  setGradient(5, datey-25, atlBackw, atlBackh, blue0052aa, blue006fe6, X_AXIS);
-  int atlx;
-  int atly;
-=======
   int atlBackw = (305*displayWidth)/1024;
   int atlBackh = (75*displayHeight)/768;
   setGradient(0, datey - 25, atlBackw, atlBackh, blue0052aa, blue006fe6, X_AXIS);
@@ -146,7 +139,6 @@ void draw(){
   int temperaturey = datey + (atlBackh/2) - 13;
   fill(blue1000c6);
   text(temperature, temperaturex, temperaturey);
->>>>>>> ce4891229ec2f60cf7ed0843b6fe02e6d2621765
   
   //NAVIGATION BAR
   //x, y, displayWidth values
@@ -170,15 +162,15 @@ void draw(){
   textAlign(CENTER);
   fill(0,0,0);
   int cat1y = navy + categorydisplayHeight - 17;
-  text("SAFETY", navx - 20, cat1y, navx + navw - 20, navy + categorydisplayHeight);
+  text("SAFETY", navx - 16, cat1y, navx + navw - 20, navy + categorydisplayHeight);
   int cat2y = navy + (2*categorydisplayHeight) - 17;
-  text("TRANSPORTATION", navx - 20, cat2y, navx + navw - 20, navy + (2*categorydisplayHeight));
+  text("TRANSPORTATION", navx - 14, cat2y, navx + navw - 20, navy + (2*categorydisplayHeight));
   int cat3y = navy + (3*categorydisplayHeight) - 17;
-  text("INDUSTRY", navx - 20, cat3y, navx + navw - 20, navy + (3*categorydisplayHeight));
+  text("INDUSTRY", navx - 16, cat3y, navx + navw - 20, navy + (3*categorydisplayHeight));
   int cat4y = navy + (4*categorydisplayHeight) - 17;
-  text("EDUCATION", navx - 20, cat4y, navx + navw - 20, navy + (4*categorydisplayHeight));
+  text("EDUCATION", navx - 14, cat4y, navx + navw - 20, navy + (4*categorydisplayHeight));
   int cat5y = navy + (5*categorydisplayHeight) - 17;
-  text("ENVIRONMENT", navx - 20, cat5y, navx + navw - 20, navy + (5*categorydisplayHeight));
+  text("ENVIRONMENT", navx - 14, cat5y, navx + navw - 20, navy + (5*categorydisplayHeight));
   //icons
   PImage safetyIcon = loadImage("safetyIcon.png");
   PImage carIcon = loadImage("carIcon.png");
@@ -198,8 +190,8 @@ void draw(){
   int contentx = (215*displayWidth)/1366;
   //int contenty = (120*displayHeight)/768;
   int contenty = navy;
-  int contentw = (900*displayWidth)/1366;
-  int contenth = (565*displayHeight)/642; 
+  int contentw = (735*displayWidth)/1024;
+  int contenth = (565*displayHeight)/768; 
   //rect(contentx, contenty, contentw, contenth);
   setGradient(contentx, contenty, contentw, contenth, blue006fe6, blue00b1d3, Y_AXIS);
   noStroke();
@@ -221,12 +213,16 @@ void draw(){
     safe.drawPage();  
      break;
    case TRANSPORTATION:
+     Transportation trans = new Transportation();
      break;
    case INDUSTRY:
+     Industry industry = new Industry();
      break;
    case EDUCATION:
+     Education edu = new Education();
      break;
    case ENVIRONMENT:
+     Environment env = new Environment();
      break;
   }
   
