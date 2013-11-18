@@ -106,10 +106,10 @@ void draw(){
   //x and y values for beginnging position
   int datew = (int)textWidth(displayDate);
   int datexend = displayWidth - ((20*displayWidth)/1366);
-  int datex = datexend - datew;
+  int datex = datexend - (datew/2);
   int datey = (40*displayHeight)/642;
   fill(blue1000c6);
-  text(displayDate, datex + 125, datey);
+  text(displayDate, datex, datey);
   //get and display time
   SimpleDateFormat time = new SimpleDateFormat("h:mm a");
   //TimeZone tz = TimeZone.getTimeZone("US/Eastern");
@@ -117,7 +117,7 @@ void draw(){
   String displayTime = time.format(new Date());
   //x and y values for beginning position
   int timew = (int)textWidth(displayTime);
-  int timex = datexend - timew;
+  int timex = datexend - (timew/2);
   int timey = datey + 30;
   fill(blue1000c6);
   text(displayTime, timex, timey);
