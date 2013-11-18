@@ -122,17 +122,17 @@ void draw(){
   fill(blue1000c6);
   text(displayTime, timex, timey);
   //Atlanta text background
-<<<<<<< HEAD
+
   int atlBackw = (305*displayWidth)/1366;
   int atlBackh = (75*displayHeight)/642;
   setGradient(5, datey-25, atlBackw, atlBackh, blue0052aa, blue006fe6, X_AXIS);
   int atlx;
   int atly;
-=======
-  int atlBackw = (305*displayWidth)/1024;
-  int atlBackh = (75*displayHeight)/768;
+
+  //int atlBackw = (305*displayWidth)/1024;
+  //int atlBackh = (75*displayHeight)/768;
   setGradient(0, datey - 25, atlBackw, atlBackh, blue0052aa, blue006fe6, X_AXIS);
-  int atlx = 5;
+  atlx = 5;
   //ATLANTA header image with seal
   PImage atl = loadImage("header.png");
   image(atl, atlx, datey - 25);
@@ -146,7 +146,7 @@ void draw(){
   int temperaturey = datey + (atlBackh/2) - 13;
   fill(blue1000c6);
   text(temperature, temperaturex, temperaturey);
->>>>>>> ce4891229ec2f60cf7ed0843b6fe02e6d2621765
+
   
   //NAVIGATION BAR
   //x, y, displayWidth values

@@ -28,7 +28,7 @@ public class Safety{
    box8y = box7y;
    box9x = box3x;
    box9y = box7y;
-   stroke(0);
+   noStroke();
    rect(box1x, box1y, boxwidth, boxheight);
    rect(box2x, box2y, boxwidth, boxheight);
    rect(box3x, box3y, boxwidth, boxheight);
@@ -41,32 +41,41 @@ public class Safety{
    fill(green71ca5e);
    textFont(openSansSemi36);
    text("Crime",box1x, box1y-45, 110, 50 );
-   text("Fire", box1x,box4y-45, 110, 50 );
+   text("Fire", box1x-17,box4y-45, 110, 50 );
    //text("Traffic", box1x, box7y-45, 116, 50);
    
    noStroke();
    fill(green71ca5e);
-   rect(box1x, box1y,boxwidth, boxheight-110);
-   rect(box2x, box2y,boxwidth, boxheight-110);
-   rect(box3x, box3y,boxwidth, boxheight-110);
-   rect(box4x, box4y,boxwidth, boxheight-110);
-   rect(box5x, box5y,boxwidth, boxheight-110);
-   rect(box6x, box6y,boxwidth, boxheight-110);
-//   rect(box7x, box7y,boxwidth, boxheight-110);
-//   rect(box8x, box8y,boxwidth, boxheight-110);
-//   rect(box9x, box9y,boxwidth, boxheight-110);
+   setGradient(box1x, box1y, boxwidth, boxheight/2, greenaeda79, green64c770, Y_AXIS);
+   rect(box1x, box1y,boxwidth, boxheight/2);
+   setGradient(box2x, box2y,boxwidth, boxheight/2 , greenaeda79, green64c770, Y_AXIS);
+   rect(box2x, box2y,boxwidth, boxheight/2);
+   setGradient(box3x, box3y,boxwidth, boxheight/2 , greenaeda79, green64c770, Y_AXIS);
+   rect(box3x, box3y,boxwidth, boxheight/2);
+   setGradient(box4x, box4y,boxwidth, boxheight/2 , greenaeda79, green64c770, Y_AXIS);
+   rect(box4x, box4y,boxwidth, boxheight/2);
+   setGradient(box5x, box5y,boxwidth, boxheight/2 , greenaeda79, green64c770, Y_AXIS);
+   rect(box5x, box5y,boxwidth, boxheight/2);
+   setGradient(box6x, box6y,boxwidth, boxheight/2 , greenaeda79, green64c770, Y_AXIS);
+   rect(box6x, box6y,boxwidth, boxheight/2);
+//   setGradient(box7x, box7y,boxwidth, boxheight/2 , greenaeda79, green64c770, Y_AXIS);
+//   rect(box7x, box7y,boxwidth, boxheight/2);
+//   setGradient(box8x, box8y,boxwidth, boxheight/2 , greenaeda79, green64c770, Y_AXIS);
+//   rect(box8x, box8y,boxwidth, boxheight/2);
+//   setGradient(box9x, box9y,boxwidth, boxheight/2 , greenaeda79, green64c770, Y_AXIS);
+//   rect(box9x, box9y,boxwidth, boxheight/2);
    
    fill(blue1000c6);
    textFont(openSansSemi14);
-   text("Aggravated Assualt\n YTD", box1x+35, box1y+14); 
-   text("Homicides\n Committed", box2x+35, box2y+14);
-   text("Shootings\n (Non-fatal)", box3x+35, box3y+14);
-   text("Fire Fatalities", box4x+35, box4y+14);
-   text("Total Fire\n Events", box5x+35, box5y+14);
-   text("Fire Alarms\n Cited", box6x+35, box6y+14);
-//   text("Citations\n Issued", box7x+35, box7y+14);
-//   text("Traffic Cases\n Files", box8x+35, box8y+14);
-//   text("Lorem Ipsum", box9x+35, box9y+14);
+   text("Aggravated Assualt\n YTD", box1x+boxwidth/2, box1y+16); 
+   text("Homicides\n Committed", box2x+boxwidth/2, box2y+16);
+   text("Shootings\n (Non-fatal)", box3x+boxwidth/2, box3y+16);
+   text("Fire Fatalities", box4x+boxwidth/2, box4y+16);
+   text("Total Fire\n Events", box5x+boxwidth/2, box5y+16);
+   text("Fire Alarms\n Cited", box6x+boxwidth/2, box6y+16);
+//   text("Citations\n Issued", box7x+boxwidth/2, box7y+16);
+//   text("Traffic Cases\n Files", box8x+boxwidth/2, box8y+16);
+//   text("Lorem Ipsum", box9x+boxwidth/2, box9y+16);
  }
   
 }
