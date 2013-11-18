@@ -65,7 +65,7 @@ public class Safety{
 //   setGradient(box9x, box9y,boxwidth, boxheight/2 , greenaeda79, green64c770, Y_AXIS);
 //   rect(box9x, box9y,boxwidth, boxheight/2);
    
-   fill(blue1000c6);
+   fill(blue00bfd5);
    textFont(openSansSemi14);
    text("Aggravated Assualt\n YTD", box1x+boxwidth/2, box1y+16); 
    text("Homicides\n Committed", box2x+boxwidth/2, box2y+16);
@@ -73,9 +73,19 @@ public class Safety{
    text("Fire Fatalities", box4x+boxwidth/2, box4y+16);
    text("Total Fire\n Events", box5x+boxwidth/2, box5y+16);
    text("Fire Alarms\n Cited", box6x+boxwidth/2, box6y+16);
+   
 //   text("Citations\n Issued", box7x+boxwidth/2, box7y+16);
 //   text("Traffic Cases\n Files", box8x+boxwidth/2, box8y+16);
 //   text("Lorem Ipsum", box9x+boxwidth/2, box9y+16);
+
+   fill(blue1000c6);
+   textFont(openSansSemi36);
+   text("68", box1x+boxwidth/2, box1y+boxheight/2+60);
+   text("3", box2x+boxwidth/2, box2y+boxheight/2+60);
+   text("16", box3x+boxwidth/2, box3y+boxheight/2+60);
+   text("0",  box4x+boxwidth/2, box4y+boxheight/2+60);
+   text("178", box5x+boxwidth/2, box5y+boxheight/2+60);
+   text("100%", box6x+boxwidth/2, box6y+boxheight/2+60);
  }
   
 }
