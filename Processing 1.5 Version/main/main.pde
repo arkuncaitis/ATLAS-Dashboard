@@ -32,11 +32,6 @@ final int ENVIRONMENT = 5;
 int Y_AXIS = 1;
 int X_AXIS = 2;
 //COLORS
-//color headerGradientc1 = color(145, 227, 133);
-//color headerGradientc2 = color(186, 221, 139);
-//color backgroundOverlay = color(0, 124, 255);
-//color contentGradientc1 = color(20, 156, 217);
-//color contentGradientc2 = color(63, 167, 217);
 color blue0052aa = color(0, 82, 170);
 color blue006fe6 = color(0, 111, 230);
 color blue00b1d3 = color(0, 177, 211);
@@ -82,8 +77,6 @@ void setup(){
   Ani.init(this);
   //initialize weather settings for atlanta
   //2357024 = WOEID for Fulton County, Atlanta, GA
-  
-  
   weather = new YahooWeather(this, 2357024, "f", 100);
 }
 
@@ -137,13 +130,13 @@ void draw(){
   PImage atl = loadImage("header.png");
   image(atl, atlx, datey - 25);
   //Weather
-  int temperature = weather.getTemperature();
-  int temperaturex = atlBackw + 25;
-  int temperaturey = datey;
   noStroke();
   fill(greenaeda79);
   int temperatureBackw = (215*displayWidth)/1024;
   rect(atlBackw, datey-25, temperatureBackw, atlBackh);
+  int temperature = weather.getTemperature();
+  int temperaturex = atlBackw + temperatureBackw - 25;
+  int temperaturey = datey + (atlBackh/2) - 13;
   fill(blue1000c6);
   text(temperature, temperaturex, temperaturey);
   
