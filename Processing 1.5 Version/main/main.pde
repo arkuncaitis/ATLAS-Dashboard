@@ -1,9 +1,9 @@
+import com.onformative.yahooweather.*;
 import de.looksgood.ani.easing.*;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 import java.util.Date;
 import de.looksgood.ani.*;
-import com.onformative.yahooweather.*;
 
 //size junk
 int resolutionWidth = 1366;
@@ -103,7 +103,7 @@ void draw(){
   
   //HEADER
   noStroke();
-  int headerdisplayHeight = (95*displayHeight)/768;
+  int headerdisplayHeight = (95*displayHeight)/642;
   setGradient(0, 0, displayWidth, headerdisplayHeight, green64c770, greenaeda79, Y_AXIS);
   
   //get and display date
@@ -114,9 +114,9 @@ void draw(){
   textFont(openSansBold34);
   //x and y values for beginnging position
   int datew = (int)textWidth(displayDate);
-  int datexend = displayWidth - ((20*displayWidth)/1024);
+  int datexend = displayWidth - ((20*displayWidth)/1366);
   int datex = datexend - datew;
-  int datey = (40*displayHeight)/768;
+  int datey = (40*displayHeight)/642;
   fill(blue1000c6);
   text(displayDate, datex, datey);
   
@@ -133,20 +133,20 @@ void draw(){
   text(displayTime, timex, timey);
   
   //Atlanta text background
-  int atlBackw = (305*displayWidth)/1024;
-  int atlBackh = (75*displayHeight)/768;
+  int atlBackw = (305*displayWidth)/1366;
+  int atlBackh = (75*displayHeight)/642;
   setGradient(5, datey-25, atlBackw, atlBackh, blue0052aa, blue006fe6, X_AXIS);
   int atlx;
   int atly;
   
   //NAVIGATION BAR
   //x, y, displayWidth values
-  int navx = (50*displayWidth)/1024;  
+  int navx = (50*displayWidth)/1366;  
   //int navy = (120*displayWidth)/768;
-  navy = headerdisplayHeight + ((25*displayHeight)/768);  //was int navy =...
-  int navw = (135*displayWidth)/1024; 
+  navy = headerdisplayHeight + ((25*displayHeight)/642);  //was int navy =...
+  int navw = (135*displayWidth)/1366; 
   //calculate displayHeight according to number of categories
-  categorydisplayHeight = (90*displayHeight)/768; //was int categorydisplayHeight =...
+  categorydisplayHeight = (90*displayHeight)/642; //was int categorydisplayHeight =...
   int categories = 5;
   int navh = categorydisplayHeight * categories; 
   noStroke();
@@ -161,11 +161,11 @@ void draw(){
   noStroke();
   fill(255, 0, 0);
   //x, y, displayWidth, and displayHeight values for the rectangle background behind the main data content area
-  int contentx = (215*displayWidth)/1024;
+  int contentx = (215*displayWidth)/1366;
   //int contenty = (120*displayHeight)/768;
   int contenty = navy;
-  int contentw = (720*displayWidth)/1024;
-  int contenth = (565*displayHeight)/768; //=441
+  int contentw = (900*displayWidth)/1366;
+  int contenth = (565*displayHeight)/642; 
   //rect(contentx, contenty, contentw, contenth);
   setGradient(contentx, contenty, contentw, contenth, blue006fe6, blue00b1d3, Y_AXIS);
   fill(blue006fe6);
@@ -182,102 +182,7 @@ void mouseClicked(){
   int x = mouseX;
   int y = mouseY;
   
-  if(x < 50+navy && x>50 && y>navy+categorydisplayHeight && y<navy+categorydisplayHeight*2){ //click on first category
-    if(currentCatY >navy+categorydisplayHeight && currentCatY<navy+categorydisplayHeight*2){
-      Ani.to(this, 1.0, "currentCatY", currentCatY+70);
-      currentCatY +=70;
-    }
-    else if(currentCatY >navy+categorydisplayHeight*2 && currentCatY<navy+categorydisplayHeight*3){
-      Ani.to(this, 1.0, "currentCatY", currentCatY+70*2);
-      currentCatY += 70*2;
-    }
-    else if(currentCatY >navy+categorydisplayHeight*3 && currentCatY<navy+categorydisplayHeight*4){
-      Ani.to(this, 1.0, "currentCatY", currentCatY+70*3);
-      currentCatY += 70*3;
-    }
-    else if(currentCatY >navy+categorydisplayHeight*4 && currentCatY<navy+categorydisplayHeight*5){
-      Ani.to(this, 1.0, "currentCatY", currentCatY+70*4);
-      currentCatY += 70*4;
-    }
-  }//end click first category
-  
-  else if(x < 50+navy && x>50 && y>navy+categorydisplayHeight*2 && y<navy+categorydisplayHeight*3){ //click 2nd category
-    if(currentCatY >navy && currentCatY<navy+categorydisplayHeight){
-      Ani.to(this, 1.0, "currentCatY", currentCatY-70);
-      currentCatY -= 70;
-    }
-    else if(currentCatY >navy+categorydisplayHeight*2 && currentCatY<navy+categorydisplayHeight*3){
-      Ani.to(this, 1.0, "currentCatY", currentCatY+70);
-      currentCatY += 70;
-    }
-    else if(currentCatY >navy+categorydisplayHeight*3 && currentCatY<navy+categorydisplayHeight*4){
-      Ani.to(this, 1.0, "currentCatY", currentCatY+70*2);
-      currentCatY += 70*2;
-    }
-    else if(currentCatY >navy+categorydisplayHeight*4 && currentCatY<navy+categorydisplayHeight*5){
-      Ani.to(this, 1.0, "currentCatY", currentCatY+70*3);
-      currentCatY += 70*3;
-    }
-  }//end click on second category
-  
-  else if(x < 50+navy && x>50 && y>navy+categorydisplayHeight*3 && y<navy+categorydisplayHeight*4){//click on third category
-    if(currentCatY >navy && currentCatY<navy+categorydisplayHeight){
-      Ani.to(this, 1.0, "currentCatY", currentCatY-70*2);
-      currentCatY -= 70*2;
-    }
-    else if(currentCatY >navy+categorydisplayHeight && currentCatY<navy+categorydisplayHeight*2){
-      Ani.to(this, 1.0, "currentCatY", currentCatY-70);
-      currentCatY -= 70;
-    }
-    else if(currentCatY >navy+categorydisplayHeight*3 && currentCatY<navy+categorydisplayHeight*4){
-      Ani.to(this, 1.0, "currentCatY", currentCatY+70);
-      currentCatY += 70;
-    }
-    else if(currentCatY >navy+categorydisplayHeight*4 && currentCatY<navy+categorydisplayHeight*5){
-      Ani.to(this, 1.0, "currentCatY", currentCatY+70*2);
-      currentCatY += 70*2;
-    }
-  }//end click on third category
-  
-  else if(x < 50+navy && x>50 && y>navy+categorydisplayHeight*4 && y<navy+categorydisplayHeight*5){//click on 4th category
-    if(currentCatY >navy && currentCatY<navy+categorydisplayHeight){
-      Ani.to(this, 1.0, "currentCatY", currentCatY-70*3);
-      currentCatY -= 70*3;
-    }
-    else if(currentCatY >navy+categorydisplayHeight && currentCatY<navy+categorydisplayHeight*2){
-      Ani.to(this, 1.0, "currentCatY", currentCatY-70*2);
-      currentCatY -= 70*2;
-    }
-    else if(currentCatY >navy+categorydisplayHeight*2 && currentCatY<navy+categorydisplayHeight*3){
-      Ani.to(this, 1.0, "currentCatY", currentCatY-70);
-      currentCatY -= 70;
-    }
-    else if(currentCatY >navy+categorydisplayHeight*4 && currentCatY<navy+categorydisplayHeight*5){
-      Ani.to(this, 1.0, "currentCatY", currentCatY+70);
-      currentCatY += 70;
-    }
-  }//end click on fourth category
-  
-  else if(x < 50+navy && x>50 && y>navy+categorydisplayHeight*5 && y<navy+categorydisplayHeight*6){ //click on 5th category
-    if(currentCatY >navy && currentCatY<navy+categorydisplayHeight){
-      Ani.to(this, 1.0, "currentCatY", currentCatY-70*4);
-      currentCatY -= 70*4;
-    }
-    else if(currentCatY >navy+categorydisplayHeight && currentCatY<navy+categorydisplayHeight*2){
-      Ani.to(this, 1.0, "currentCatY", currentCatY-70*3);
-      currentCatY -= 70*3;
-    }
-    else if(currentCatY >navy+categorydisplayHeight*2 && currentCatY<navy+categorydisplayHeight*3){
-      Ani.to(this, 1.0, "currentCatY", currentCatY-70*2);
-      currentCatY -= 70*2;
-    }
-    else if(currentCatY >navy+categorydisplayHeight*3 && currentCatY<navy+categorydisplayHeight*4){
-      Ani.to(this, 1.0, "currentCatY", currentCatY-70);
-      currentCatY -= 70;
-    }
-  }//end click on fifth category
-  
-  //Ani.to(this, 1.0, "currentCatY", currentCatY+70);
+  Ani.to(this, 1.0, "currentCatY", currentCatY+70);
 }//end mouseClicked()
 
 //Gradient Code
