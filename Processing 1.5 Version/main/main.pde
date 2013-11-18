@@ -109,7 +109,7 @@ void draw(){
   int datex = datexend - datew;
   int datey = (40*displayHeight)/642;
   fill(blue1000c6);
-  text(displayDate, datex + 110, datey);
+  text(displayDate, datex + 125, datey);
   //get and display time
   SimpleDateFormat time = new SimpleDateFormat("h:mm a");
   //TimeZone tz = TimeZone.getTimeZone("US/Eastern");
@@ -122,6 +122,7 @@ void draw(){
   fill(blue1000c6);
   text(displayTime, timex, timey);
   //Atlanta text background
+<<<<<<< HEAD
 
   int atlBackw = (305*displayWidth)/1366;
   int atlBackh = (75*displayHeight)/642;
@@ -131,6 +132,10 @@ void draw(){
 
   //int atlBackw = (305*displayWidth)/1024;
   //int atlBackh = (75*displayHeight)/768;
+=======
+  int atlBackw = (305*displayWidth)/1024;
+  int atlBackh = (75*displayHeight)/768;
+>>>>>>> 3cb2b3e9e0824ca2348604a1305b29845145e735
   setGradient(0, datey - 25, atlBackw, atlBackh, blue0052aa, blue006fe6, X_AXIS);
   atlx = 5;
   //ATLANTA header image with seal
@@ -146,7 +151,10 @@ void draw(){
   int temperaturey = datey + (atlBackh/2) - 13;
   fill(blue1000c6);
   text(temperature, temperaturex, temperaturey);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3cb2b3e9e0824ca2348604a1305b29845145e735
   
   //NAVIGATION BAR
   //x, y, displayWidth values
@@ -170,15 +178,15 @@ void draw(){
   textAlign(CENTER);
   fill(0,0,0);
   int cat1y = navy + categorydisplayHeight - 17;
-  text("SAFETY", navx - 20, cat1y, navx + navw - 20, navy + categorydisplayHeight);
+  text("SAFETY", navx - 16, cat1y, navx + navw - 20, navy + categorydisplayHeight);
   int cat2y = navy + (2*categorydisplayHeight) - 17;
-  text("TRANSPORTATION", navx - 20, cat2y, navx + navw - 20, navy + (2*categorydisplayHeight));
+  text("TRANSPORTATION", navx - 14, cat2y, navx + navw - 20, navy + (2*categorydisplayHeight));
   int cat3y = navy + (3*categorydisplayHeight) - 17;
-  text("INDUSTRY", navx - 20, cat3y, navx + navw - 20, navy + (3*categorydisplayHeight));
+  text("INDUSTRY", navx - 16, cat3y, navx + navw - 20, navy + (3*categorydisplayHeight));
   int cat4y = navy + (4*categorydisplayHeight) - 17;
-  text("EDUCATION", navx - 20, cat4y, navx + navw - 20, navy + (4*categorydisplayHeight));
+  text("EDUCATION", navx - 14, cat4y, navx + navw - 20, navy + (4*categorydisplayHeight));
   int cat5y = navy + (5*categorydisplayHeight) - 17;
-  text("ENVIRONMENT", navx - 20, cat5y, navx + navw - 20, navy + (5*categorydisplayHeight));
+  text("ENVIRONMENT", navx - 14, cat5y, navx + navw - 20, navy + (5*categorydisplayHeight));
   //icons
   PImage safetyIcon = loadImage("safetyIcon.png");
   PImage carIcon = loadImage("carIcon.png");
@@ -198,8 +206,8 @@ void draw(){
   int contentx = (215*displayWidth)/1366;
   //int contenty = (120*displayHeight)/768;
   int contenty = navy;
-  int contentw = (900*displayWidth)/1366;
-  int contenth = (565*displayHeight)/642; 
+  int contentw = (735*displayWidth)/1024;
+  int contenth = (565*displayHeight)/768; 
   //rect(contentx, contenty, contentw, contenth);
   setGradient(contentx, contenty, contentw, contenth, blue006fe6, blue00b1d3, Y_AXIS);
   noStroke();
@@ -221,14 +229,34 @@ void draw(){
     safe.drawPage();  
      break;
    case TRANSPORTATION:
+     Transportation trans = new Transportation();
      break;
    case INDUSTRY:
+     Industry industry = new Industry();
      break;
    case EDUCATION:
+     Education edu = new Education();
      break;
    case ENVIRONMENT:
+     Environment env = new Environment();
      break;
   }
+  
+  //FOOTER
+  //int footerEndY = displayHeight - ((25*displayHeight)/768);
+  int footerh = (35*displayHeight)/768;
+  int footerSpace = displayHeight - (contenty + contenth);
+  int footery = displayHeight - (footerSpace/2) - (footerh/2);
+  setGradient(0, footery, displayWidth, footerh, greenaeda79, green64c770, Y_AXIS);
+  int footerTxtY = footery + (footerh/2) + 7;
+  textFont(openSansSemi14);
+  fill(0, 0, 0);
+  text("Copyright 2013 City of Atlanta, GA. All Rights Reserved", navx + 185, footerTxtY);
+  String links = "Safety/Transportation/Industry/Education/Environment";
+  int linksw = (int)textWidth(links);
+  int rightSideSpace = displayWidth - (contentx + contentw);
+  int footerLinksX = displayWidth - rightSideSpace - (linksw/2);
+  text(links, footerLinksX, footerTxtY);
   
 }
 
