@@ -74,6 +74,8 @@ void setup(){
   //size(1024,768);   
   //set default system state
   currentState = SAFETY;
+  //set initial triangle y value for default state
+  currentCatY = ((95*displayHeight)/642 + ((25*displayHeight)/642)) + ((int)(.5*((90*displayHeight)/642)));
   //init skyline
   skyline = loadImage("atlanta.jpg");
   //resizes the image to the size of the application
