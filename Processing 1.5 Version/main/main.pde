@@ -5,6 +5,8 @@ import java.util.TimeZone;
 import java.util.Date;
 import de.looksgood.ani.*;
 
+//instance of weather library
+YahooWeather weather;
 //size junk
 int resolutionWidth = 1366;
 int resolutionHeight = 768;
@@ -18,8 +20,12 @@ int currentCatX;
 //Y dimension for the currently selected catgory - 
 //Y dimension of left most point for moving triangle on navigation
 int currentCatY;
-//instance of weather library
-YahooWeather weather;
+//navigation moving triangle state variables
+int safetyTriY;
+int transTriY;
+int industryTriY;
+int eduTriY;
+int envTriY;
 //Mock State Machine variables for navigation bar
 int currentState;
 final int HOME = 0;
@@ -59,8 +65,9 @@ PFont openSansSemi36 = createFont("Open Sans Semibold", 36);
 //ATL Skyline image
 PImage skyline;
 
-//Navigation bar variables needed for mouseClicked()
-int navy, categorydisplayHeight;
+//variables needed for mouseClicked()
+//variables from navigation bar, header
+int navy, categorydisplayHeight, navx, navw, headerdisplayHeight;
 
 void setup(){
   size(1366, 642);
@@ -95,7 +102,7 @@ void draw(){
   
   //HEADER
   noStroke();
-  int headerdisplayHeight = (95*displayHeight)/642;
+  headerdisplayHeight = (95*displayHeight)/642;
   setGradient(0, 0, displayWidth, headerdisplayHeight, green64c770, greenaeda79, Y_AXIS);
   //get and display date
   SimpleDateFormat date = new SimpleDateFormat("EEEEE, MMMMM d");
@@ -147,10 +154,10 @@ void draw(){
   
   //NAVIGATION BAR
   //x, y, displayWidth values
-  int navx = (50*displayWidth)/1366;  
+  navx = (50*displayWidth)/1366;  
   //int navy = (120*displayWidth)/768;
   navy = headerdisplayHeight + ((25*displayHeight)/642);  //was int navy =...
-  int navw = (135*displayWidth)/1366; 
+  navw = (135*displayWidth)/1366; 
   //calculate displayHeight according to number of categories
   categorydisplayHeight = (90*displayHeight)/642; //was int categorydisplayHeight =...
   int categories = 5;
@@ -199,13 +206,6 @@ void draw(){
   int contenth = (565*displayHeight)/768; 
   //rect(contentx, contenty, contentw, contenth);
   setGradient(contentx, contenty, contentw, contenth, blue006fe6, blue00b1d3, Y_AXIS);
-  noStroke();
-  fill(blue006fe6);
-  currentCatX = contentx - 29;
-  currentCatY = navy + ((int)(.5*categorydisplayHeight));
-  triangle(currentCatX, currentCatY, 
-           contentx, currentCatY-14, 
-           contentx, currentCatY+14);  
 
   //change page information
   switch(currentState){
@@ -213,23 +213,45 @@ void draw(){
      Home home = new Home();
      break;
    case SAFETY:
+   //update state-dependent variables
+   //safetyTriY = navy + ((int)(.5*categorydisplayHeight));
+   //currentCatY = safetyTriY;
    /* added to display grid on Content Area*/
     Safety safe = new Safety();
     safe.drawPage();  
      break;
    case TRANSPORTATION:
+   //update state-dependent variables
+     //transTriY = navy + categorydisplayHeight + ((int)(.5*categorydisplayHeight));
+     //currentCatY = transTriY;
      Transportation trans = new Transportation();
      break;
    case INDUSTRY:
+   //update state-dependent variables
+     //inductryTriY = navy + (2*categorydisplayHeight) + ((int)(.5*categorydisplayHeight));
+     //currentCatY = industryTriY;
      Industry industry = new Industry();
      break;
    case EDUCATION:
+   //update state-dependent variables
+     //eduTriY = navy + (3*categorydisplayHeight) + ((int)(.5*categorydisplayHeight));
+     //currentCatY = eduTriY;
      Education edu = new Education();
      break;
    case ENVIRONMENT:
+   //update state-dependent variables
+     //envTriY = navy + (4*categorydisplayHeight) + ((int)(.5*categorydisplayHeight));
+     //currentCatY = envTriY;
      Environment env = new Environment();
      break;
   }
+  noStroke();
+  fill(blue006fe6);
+  currentCatX = contentx - 29;
+  //currentCatY = navy + ((int)(.5*categorydisplayHeight));
+  triangle(currentCatX, currentCatY, 
+           contentx, currentCatY-14, 
+           contentx, currentCatY+14);  
   
   //FOOTER
   //int footerEndY = displayHeight - ((25*displayHeight)/768);
@@ -253,7 +275,36 @@ void mouseClicked(){
   int x = mouseX;
   int y = mouseY;
   
-  Ani.to(this, 1.0, "currentCatY", currentCatY+70);
+  if(x >= navx && x <= navx + navw && y >= navy && y <= navy + categorydisplayHeight){
+     currentState = SAFETY;
+     safetyTriY = navy + ((int)(.5*categorydisplayHeight));
+     Ani.to(this, 1.0, "currentCatY", safetyTriY);
+  }
+  else if(x >= navx && x <= navx + navw && y >= navy + categorydisplayHeight && y <= navy + (2*categorydisplayHeight)){
+    currentState = TRANSPORTATION; 
+    transTriY = navy + categorydisplayHeight + ((int)(.5*categorydisplayHeight));
+    Ani.to(this, 1.0, "currentCatY", transTriY);
+  }
+  else if(x >= navx && x <= navx + navw && y >= navy + categorydisplayHeight && y <= navy + (3*categorydisplayHeight)){
+    currentState = INDUSTRY; 
+    industryTriY = navy + (2*categorydisplayHeight) + ((int)(.5*categorydisplayHeight));
+    Ani.to(this, 1.0, "currentCatY", industryTriY);
+  }
+  else if(x >= navx && x <= navx + navw && y >= navy + categorydisplayHeight && y <= navy + (4*categorydisplayHeight)){
+    currentState = EDUCATION; 
+    eduTriY = navy + (3*categorydisplayHeight) + ((int)(.5*categorydisplayHeight));
+    Ani.to(this, 1.0, "currentCatY", eduTriY);
+  }
+  else if(x >= navx && x <= navx + navw && y >= navy + categorydisplayHeight && y <= navy + (5*categorydisplayHeight)){
+    currentState = ENVIRONMENT;
+    envTriY = navy + (4*categorydisplayHeight) + ((int)(.5*categorydisplayHeight));
+    Ani.to(this, 1.0, "currentCatY", envTriY);
+  }
+  else if(y <= headerdisplayHeight){
+    currentState = HOME;
+  }
+  
+  //Ani.to(this, 1.0, "currentCatY", currentCatY+70);
 }//end mouseClicked()
 
 //Gradient Code
