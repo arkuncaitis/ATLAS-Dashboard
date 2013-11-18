@@ -29,6 +29,7 @@ public class Safety{
    box9x = box3x;
    box9y = box7y;
    noStroke();
+   fill(blue00bfd5);
    rect(box1x, box1y, boxwidth, boxheight);
    rect(box2x, box2y, boxwidth, boxheight);
    rect(box3x, box3y, boxwidth, boxheight);
@@ -65,7 +66,7 @@ public class Safety{
 //   setGradient(box9x, box9y,boxwidth, boxheight/2 , greenaeda79, green64c770, Y_AXIS);
 //   rect(box9x, box9y,boxwidth, boxheight/2);
    
-   fill(blue00bfd5);
+   fill(blue1000c6);
    textFont(openSansSemi14);
    text("Aggravated Assualt\n YTD", box1x+boxwidth/2, box1y+16); 
    text("Homicides\n Committed", box2x+boxwidth/2, box2y+16);
