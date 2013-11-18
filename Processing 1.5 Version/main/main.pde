@@ -122,25 +122,13 @@ void draw(){
   fill(blue1000c6);
   text(displayTime, timex, timey);
   //Atlanta text background
-<<<<<<< HEAD
-  int atlBackw = (305*displayWidth)/1024;
-  int atlBackh = (75*displayHeight)/768;
-=======
-
-
   int atlBackw = (305*displayWidth)/1366;
   int atlBackh = (75*displayHeight)/642;
   setGradient(5, datey-25, atlBackw, atlBackh, blue0052aa, blue006fe6, X_AXIS);
-  int atlx;
-  int atly;
 
   //int atlBackw = (305*displayWidth)/1024;
   //int atlBackh = (75*displayHeight)/768;
 
-//  int atlBackw = (305*displayWidth)/1024;
-//  int atlBackh = (75*displayHeight)/768;
-
->>>>>>> 914997659410212207be5cf15a2e4fcd4f34e859
   setGradient(0, datey - 25, atlBackw, atlBackh, blue0052aa, blue006fe6, X_AXIS);
   int atlx = 5;
   //ATLANTA header image with seal
