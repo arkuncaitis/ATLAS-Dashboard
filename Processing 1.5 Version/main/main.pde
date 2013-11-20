@@ -206,35 +206,20 @@ void draw(){
      Home home = new Home();
      break;
    case SAFETY:
-   //update state-dependent variables
-   //safetyTriY = navy + ((int)(.5*categorydisplayHeight));
-   //currentCatY = safetyTriY;
-   /* added to display grid on Content Area*/
-    Safety safe = new Safety();
-    safe.drawPage();  
+     /* added to display grid on Content Area*/
+     Safety safe = new Safety();
+     safe.drawPage();  
      break;
    case TRANSPORTATION:
-   //update state-dependent variables
-     //transTriY = navy + categorydisplayHeight + ((int)(.5*categorydisplayHeight));
-     //currentCatY = transTriY;
      Transportation trans = new Transportation();
      break;
    case INDUSTRY:
-   //update state-dependent variables
-     //inductryTriY = navy + (2*categorydisplayHeight) + ((int)(.5*categorydisplayHeight));
-     //currentCatY = industryTriY;
      Industry industry = new Industry();
      break;
    case EDUCATION:
-   //update state-dependent variables
-     //eduTriY = navy + (3*categorydisplayHeight) + ((int)(.5*categorydisplayHeight));
-     //currentCatY = eduTriY;
      Education edu = new Education();
      break;
    case ENVIRONMENT:
-   //update state-dependent variables
-     //envTriY = navy + (4*categorydisplayHeight) + ((int)(.5*categorydisplayHeight));
-     //currentCatY = envTriY;
      Environment env = new Environment();
      break;
   }
@@ -264,6 +249,34 @@ void draw(){
   int footerLinksX = displayWidth - rightSideSpace - (linksw/2);
   text(links, footerLinksX, footerTxtY);
   
+  //HOVER
+  int x = mouseX;
+  int y = mouseY;
+  if(x >= navx && x <= navx + navw && y >= navy && y <= navy + categorydisplayHeight){
+//     SAFETY hover
+      safetyIcon = loadImage("safetyHoverIcon.png");
+      image(safetyIcon, navx + (navw/2) - 30, navy + (categorydisplayHeight/2) - 34);
+  }
+  else if(x >= navx && x <= navx + navw && y >= navy + categorydisplayHeight && y <= navy + (2*categorydisplayHeight)){
+//    TRANSPORTATION hover 
+    carIcon = loadImage("carHoverIcon.png");
+    image(carIcon, navx + (navw/2) - 30, navy + categorydisplayHeight + (categorydisplayHeight/2) - 34);
+  }
+  else if(x >= navx && x <= navx + navw && y >= navy + categorydisplayHeight && y <= navy + (3*categorydisplayHeight)){
+//    INDUSTRY hover
+    industryIcon = loadImage("industryHoverIcon.png");
+    image(industryIcon, navx + (navw/2) - 30,  navy + (2*categorydisplayHeight) + (categorydisplayHeight/2) - 34);
+  }
+  else if(x >= navx && x <= navx + navw && y >= navy + categorydisplayHeight && y <= navy + (4*categorydisplayHeight)){
+//    EDUCATION hover
+    bookIcon = loadImage("eduHoverIcon.png");
+    image(bookIcon, navx + (navw/2) - 30,  navy + (3*categorydisplayHeight) + (categorydisplayHeight/2) - 34);
+  }
+  else if(x >= navx && x <= navx + navw && y >= navy + categorydisplayHeight && y <= navy + (5*categorydisplayHeight)){
+//    ENVIRONMENT hover
+    environmentIcon = loadImage("envHoverIcon.png");
+    image(environmentIcon, navx + (navw/2) - 30,  navy + (4*categorydisplayHeight) + (categorydisplayHeight/2) - 34);
+  }
 }
 
 void mouseClicked(){
