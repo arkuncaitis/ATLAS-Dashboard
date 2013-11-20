@@ -1,0 +1,35 @@
+/********************* Color reference chart**************** 
+
+blue	#0052AA		RGB(0, 82, 170)
+blue	#006FE6		RBG(0, 111, 230)
+blue	#00B1D3		RGB(0, 177, 211)
+blue	#0F3CFF		RGB(15, 60, 255)
+blue	#1000C6		RGB(16, 0, 198)
+green	#71CA5E		RGB(113, 202, 94)
+green	#AEDA79		RGB(174, 218, 121)
+blue	#00BFD5		RGB(0, 191, 213)
+green	#64C770		RGB(100, 199, 112)
+
+*/
+
+body{
+	background-image:url("images/atlanta.jpg");
+	background-size:100%;
+}
+
+/*HEADER*/
+#header{
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	position: absolute;
+	height: 10%;
+	min-width: 100%;
+	width: 100%;
+	background: linear-gradient(to bottom, #64C770, #AEDA79);
+}
+
+/*NAVIGATION MENU*/
+#nav{
+	background: linear-gradient(to bottom, #006FE6, #00B1D3);
+}
