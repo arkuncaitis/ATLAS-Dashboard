@@ -1,7 +1,7 @@
 //class representing the webpage for the Safety category
 public class Safety{
   //variables for X and Y locations and size
-  int box1x, box1y, box2x, box2y, box3x, box3y, box4x, box4y, box5x, box5y, box6x, box6y, box7x, box7y, box8x, box8y, box9x, box9y;
+  public int box1x, box1y, box2x, box2y, box3x, box3y, box4x, box4y, box5x, box5y, box6x, box6y, box7x, box7y, box8x, box8y, box9x, box9y;
   int boxwidth = 240, boxheight = 160;
   int displayWidth = 1366, displayHeight = 642;
   
@@ -88,5 +88,36 @@ public class Safety{
    text("178", box5x+boxwidth/2, box5y+boxheight/2+60);
    text("100%", box6x+boxwidth/2, box6y+boxheight/2+60);
  }
+ 
+// void mouseClicked(){
+//   int x =mouseX;
+//   int y = mouseY;
+//   
+//   if(x>=box1x && x<box1x +boxwidth && y>box1y && y<box1y+boxheight){
+//     Ani.to(this, 2.0, "box1x", box6x+30);
+//     Ani.to(this, 2.0, "box1y", box6y+30);
+//   }
+//   else if(x>=box2x && x<box2x +boxwidth && y>box2y && y<box2y+boxheight){
+//     Ani.to(this, 2.0, "box2x", box6x+30);
+//     Ani.to(this, 2.0, "box2y", box6y+30);
+//   }
+//   else if(x>=box3x && x<box3x +boxwidth && y>box3y && y<box3y+boxheight){
+//     Ani.to(this, 2.0, "box3x", box6x+30);
+//     Ani.to(this, 2.0, "box3y", box6y+30);
+//   }
+//   else if(x>=box4x && x<box4x +boxwidth && y>box4y && y<box4y+boxheight){
+//     Ani.to(this, 2.0, "box4x", box6x+30);
+//     Ani.to(this, 2.0, "box4y", box6y+30);
+//   }
+//   else if(x>=box5x && x<box5x +boxwidth && y>box5y && y<box5y+boxheight){
+//     Ani.to(this, 2.0, "box5x", box6x+30);
+//     Ani.to(this, 2.0, "box5y", box6y+30);
+//   }
+//   else if(x>=box6x && x<box6x +boxwidth && y>box6y && y<box6y+boxheight){
+//     Ani.to(this, 2.0, "box6x", box6x+30);
+//     Ani.to(this, 2.0, "box6y", box6y+30);
+//   }
+//   
+// }//void mouseclicked()
   
 }
