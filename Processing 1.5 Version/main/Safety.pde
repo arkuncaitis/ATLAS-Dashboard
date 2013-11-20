@@ -3,7 +3,8 @@ public class Safety{
   //variables for X and Y locations and size
   public int box1x, box1y, box2x, box2y, box3x, box3y, box4x, box4y, box5x, box5y, box6x, box6y, box7x, box7y, box8x, box8y, box9x, box9y;
   int boxwidth = 240, boxheight = 160;
-  int displayWidth = 1366, displayHeight = 642;
+  int displayWidth = 1280; 
+  int displayHeight = 642;
   
  public Safety(){
    

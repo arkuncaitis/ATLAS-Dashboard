@@ -10,7 +10,7 @@ YahooWeather weather;
 //size junk
 //int resolutionWidth = 1366;
 //int resolutionHeight = 768;
-int displayWidth = 1366;
+int displayWidth = 1280;
 int displayHeight = 642;
 //int displayWidth = 1024;       
 //int displayHeight = 768;                                   
@@ -71,7 +71,7 @@ PImage skyline;
 int navy, categorydisplayHeight, navx, navw, headerdisplayHeight;
 
 void setup(){
-  size(1366, 642);
+  size(1280, 642);
   //size(1024,768);   
   //set default system state
   currentState = SAFETY;
@@ -82,7 +82,7 @@ void setup(){
   skyline = loadImage("atlanta.jpg");
   //resizes the image to the size of the application
   //a background image must be the same size as the application, or a runtime error is thrown
-  skyline.resize(1366, 642);
+  skyline.resize(1280, 642);
   
   //Do not delete this line of code - initializes Ani animation library
   Ani.init(this);
@@ -210,6 +210,7 @@ void draw(){
   switch(currentState){
    case HOME:
      Home home = new Home();
+     home.drawPage();
      break;
    case SAFETY:
      /* added to display grid on Content Area*/

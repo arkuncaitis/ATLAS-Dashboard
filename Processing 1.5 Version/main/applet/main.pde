@@ -5,9 +5,11 @@ import java.util.TimeZone;
 import java.util.Date;
 import de.looksgood.ani.*;
 
+//instance of weather library
+YahooWeather weather;
 //size junk
-int resolutionWidth = 1366;
-int resolutionHeight = 768;
+//int resolutionWidth = 1366;
+//int resolutionHeight = 768;
 int displayWidth = 1366;
 int displayHeight = 642;
 //int displayWidth = 1024;       
@@ -18,8 +20,12 @@ int currentCatX;
 //Y dimension for the currently selected catgory - 
 //Y dimension of left most point for moving triangle on navigation
 int currentCatY;
-//instance of weather library
-YahooWeather weather;
+//navigation moving triangle state variables
+int safetyTriY;
+int transTriY;
+int industryTriY;
+int eduTriY;
+int envTriY;
 //Mock State Machine variables for navigation bar
 int currentState;
 final int HOME = 0;
@@ -28,6 +34,7 @@ final int TRANSPORTATION = 2;
 final int INDUSTRY = 3;
 final int EDUCATION = 4;
 final int ENVIRONMENT = 5;
+public Safety safe;
 //required gradient code constants: http://processing.org/examples/lineargradient.html
 int Y_AXIS = 1;
 int X_AXIS = 2;
@@ -59,14 +66,18 @@ PFont openSansSemi36 = createFont("Open Sans Semibold", 36);
 //ATL Skyline image
 PImage skyline;
 
-//Navigation bar variables needed for mouseClicked()
-int navy, categorydisplayHeight;
+//variables needed for mouseClicked()
+//variables from navigation bar, header
+int navy, categorydisplayHeight, navx, navw, headerdisplayHeight;
 
 void setup(){
   size(1366, 642);
   //size(1024,768);   
   //set default system state
   currentState = SAFETY;
+  safe = new Safety();
+  //set initial triangle y value for default state
+  currentCatY = ((95*displayHeight)/642 + ((25*displayHeight)/642)) + ((int)(.5*((90*displayHeight)/642)));
   //init skyline
   skyline = loadImage("atlanta.jpg");
   //resizes the image to the size of the application
@@ -83,19 +94,14 @@ void setup(){
 void draw(){
   //update the weather information
   weather.update();
-  
   //draw the atlanta skyline photo as the background
-    //background(255);
-    //image(skyline, 0, 0);
-    //tint(backgroundOverlay, 100);
-    //image(skyline, 0, 0);
   background(skyline);
 //background(255);
 //image(skyline, 0, 0);
   
   //HEADER
   noStroke();
-  int headerdisplayHeight = (95*displayHeight)/642;
+  headerdisplayHeight = (95*displayHeight)/642;
   setGradient(0, 0, displayWidth, headerdisplayHeight, green64c770, greenaeda79, Y_AXIS);
   //get and display date
   SimpleDateFormat date = new SimpleDateFormat("EEEEE, MMMMM d");
@@ -124,11 +130,7 @@ void draw(){
   //Atlanta text background
   int atlBackw = (305*displayWidth)/1366;
   int atlBackh = (75*displayHeight)/642;
-  setGradient(5, datey-25, atlBackw, atlBackh, blue0052aa, blue006fe6, X_AXIS);
-
-  //int atlBackw = (305*displayWidth)/1024;
-  //int atlBackh = (75*displayHeight)/768;
-
+  //setGradient(5, datey-25, atlBackw, atlBackh, blue0052aa, blue006fe6, X_AXIS);
   setGradient(0, datey - 25, atlBackw, atlBackh, blue0052aa, blue006fe6, X_AXIS);
   int atlx = 5;
   //ATLANTA header image with seal
@@ -138,19 +140,23 @@ void draw(){
   noStroke();
   fill(greenaeda79);
   int temperatureBackw = (215*displayWidth)/1024;
-  rect(atlBackw, datey-25, temperatureBackw, atlBackh);
+  rect(atlBackw + 1, datey-25, temperatureBackw, atlBackh + 1);
   int temperature = weather.getTemperature();
   int temperaturex = atlBackw + temperatureBackw - 25;
   int temperaturey = datey + (atlBackh/2) - 13;
   fill(blue1000c6);
-  text(temperature, temperaturex, temperaturey);
+  text(temperature, temperaturex-50, temperaturey);
+  textFont(openSansBold14);
+  text("o", temperaturex-20, temperaturey-15);
+  textFont(openSansBold34);
+  text("F", temperaturex, temperaturey);
   
   //NAVIGATION BAR
   //x, y, displayWidth values
-  int navx = (50*displayWidth)/1366;  
+  navx = (50*displayWidth)/1366;  
   //int navy = (120*displayWidth)/768;
   navy = headerdisplayHeight + ((25*displayHeight)/642);  //was int navy =...
-  int navw = (135*displayWidth)/1366; 
+  navw = (135*displayWidth)/1366; 
   //calculate displayHeight according to number of categories
   categorydisplayHeight = (90*displayHeight)/642; //was int categorydisplayHeight =...
   int categories = 5;
@@ -199,13 +205,6 @@ void draw(){
   int contenth = (565*displayHeight)/768; 
   //rect(contentx, contenty, contentw, contenth);
   setGradient(contentx, contenty, contentw, contenth, blue006fe6, blue00b1d3, Y_AXIS);
-  noStroke();
-  fill(blue006fe6);
-  currentCatX = contentx - 29;
-  currentCatY = navy + ((int)(.5*categorydisplayHeight));
-  triangle(currentCatX, currentCatY, 
-           contentx, currentCatY-14, 
-           contentx, currentCatY+14);  
 
   //change page information
   switch(currentState){
@@ -213,23 +212,36 @@ void draw(){
      Home home = new Home();
      break;
    case SAFETY:
-   /* added to display grid on Content Area*/
-    Safety safe = new Safety();
-    safe.drawPage();  
+     /* added to display grid on Content Area*/
+     //Safety safe = new Safety();
+     safe.drawPage();  
      break;
    case TRANSPORTATION:
      Transportation trans = new Transportation();
+     trans.drawPage();
      break;
    case INDUSTRY:
      Industry industry = new Industry();
+     industry.drawPage();
      break;
    case EDUCATION:
      Education edu = new Education();
+     edu.drawPage();
      break;
    case ENVIRONMENT:
      Environment env = new Environment();
+     env.drawPage();
      break;
   }
+  noStroke();
+  fill(blue006fe6);
+  currentCatX = contentx - 29;
+  //currentCatY = navy + ((int)(.5*categorydisplayHeight));
+  if(currentState != HOME){
+    triangle(currentCatX, currentCatY, 
+             contentx, currentCatY-14, 
+             contentx, currentCatY+14);
+  }  
   
   //FOOTER
   //int footerEndY = displayHeight - ((25*displayHeight)/768);
@@ -247,13 +259,116 @@ void draw(){
   int footerLinksX = displayWidth - rightSideSpace - (linksw/2);
   text(links, footerLinksX, footerTxtY);
   
+  //HOVER
+  int x = mouseX;
+  int y = mouseY;
+  if(x >= navx && x <= navx + navw && y >= navy && y <= navy + categorydisplayHeight){
+//     SAFETY hover
+      safetyIcon = loadImage("safetyHoverIcon.png");
+      image(safetyIcon, navx + (navw/2) - 30, navy + (categorydisplayHeight/2) - 34);
+      fill(blue1000c6);
+      textFont(openSansSemi14);
+      textAlign(CENTER);
+      text("SAFETY", navx - 16, cat1y, navx + navw - 20, navy + categorydisplayHeight);
+  }
+  else if(x >= navx && x <= navx + navw && y >= navy + categorydisplayHeight && y <= navy + (2*categorydisplayHeight)){
+//    TRANSPORTATION hover 
+    carIcon = loadImage("carHoverIcon.png");
+    image(carIcon, navx + (navw/2) - 30, navy + categorydisplayHeight + (categorydisplayHeight/2) - 34);
+    fill(blue1000c6);
+    textFont(openSansSemi14);
+    textAlign(CENTER);
+    text("TRANSPORTATION", navx - 14, cat2y, navx + navw - 20, navy + (2*categorydisplayHeight));
+  }
+  else if(x >= navx && x <= navx + navw && y >= navy + categorydisplayHeight && y <= navy + (3*categorydisplayHeight)){
+//    INDUSTRY hover
+    industryIcon = loadImage("industryHoverIcon.png");
+    image(industryIcon, navx + (navw/2) - 30,  navy + (2*categorydisplayHeight) + (categorydisplayHeight/2) - 34);
+    fill(blue1000c6);
+    textFont(openSansSemi14);
+    textAlign(CENTER);
+    text("INDUSTRY", navx - 16, cat3y, navx + navw - 20, navy + (3*categorydisplayHeight));
+  }
+  else if(x >= navx && x <= navx + navw && y >= navy + categorydisplayHeight && y <= navy + (4*categorydisplayHeight)){
+//    EDUCATION hover
+    bookIcon = loadImage("eduHoverIcon.png");
+    image(bookIcon, navx + (navw/2) - 30,  navy + (3*categorydisplayHeight) + (categorydisplayHeight/2) - 34);
+    fill(blue1000c6);
+    textFont(openSansSemi14);
+    textAlign(CENTER);
+    text("EDUCATION", navx - 14, cat4y, navx + navw - 20, navy + (4*categorydisplayHeight));
+  }
+  else if(x >= navx && x <= navx + navw && y >= navy + categorydisplayHeight && y <= navy + (5*categorydisplayHeight)){
+//    ENVIRONMENT hover
+    environmentIcon = loadImage("envHoverIcon.png");
+    image(environmentIcon, navx + (navw/2) - 30,  navy + (4*categorydisplayHeight) + (categorydisplayHeight/2) - 34);
+    fill(blue1000c6);
+    textFont(openSansSemi14);
+    textAlign(CENTER);
+    text("ENVIRONMENT", navx - 14, cat5y, navx + navw - 20, navy + (5*categorydisplayHeight));
+  }
 }
 
 void mouseClicked(){
   int x = mouseX;
   int y = mouseY;
+  //Safety safe = new Safety();
   
-  Ani.to(this, 1.0, "currentCatY", currentCatY+70);
+  if(x >= navx && x <= navx + navw && y >= navy && y <= navy + categorydisplayHeight){
+     currentState = SAFETY;
+     safetyTriY = navy + ((int)(.5*categorydisplayHeight));
+     Ani.to(this, 1.0, "currentCatY", safetyTriY);
+  }
+  else if(x >= navx && x <= navx + navw && y >= navy + categorydisplayHeight && y <= navy + (2*categorydisplayHeight)){
+    currentState = TRANSPORTATION; 
+    transTriY = navy + categorydisplayHeight + ((int)(.5*categorydisplayHeight));
+    Ani.to(this, 1.0, "currentCatY", transTriY);
+  }
+  else if(x >= navx && x <= navx + navw && y >= navy + categorydisplayHeight && y <= navy + (3*categorydisplayHeight)){
+    currentState = INDUSTRY; 
+    industryTriY = navy + (2*categorydisplayHeight) + ((int)(.5*categorydisplayHeight));
+    Ani.to(this, 1.0, "currentCatY", industryTriY);
+  }
+  else if(x >= navx && x <= navx + navw && y >= navy + categorydisplayHeight && y <= navy + (4*categorydisplayHeight)){
+    currentState = EDUCATION; 
+    eduTriY = navy + (3*categorydisplayHeight) + ((int)(.5*categorydisplayHeight));
+    Ani.to(this, 1.0, "currentCatY", eduTriY);
+  }
+  else if(x >= navx && x <= navx + navw && y >= navy + categorydisplayHeight && y <= navy + (5*categorydisplayHeight)){
+    currentState = ENVIRONMENT;
+    envTriY = navy + (4*categorydisplayHeight) + ((int)(.5*categorydisplayHeight));
+    Ani.to(this, 1.0, "currentCatY", envTriY);
+  }
+  else if(y <= headerdisplayHeight){
+    currentState = HOME;
+  }
+  //expanding grid checks
+   else if(x>=safe.box1x && x<safe.box1x +safe.boxwidth && y>safe.box1y && y<safe.box1y+safe.boxheight){
+     Ani.to(this, 2.0, "safe.box1x", safe.box1x+30);
+     Ani.to(this, 2.0, "safe.box1y", safe.box1y+30);
+   }
+   else if(x>=safe.box2x && x<safe.box2x +safe.boxwidth && y>safe.box2y && y<safe.box2y+safe.boxheight){
+     Ani.to(this, 2.0, "safe.box2x", safe.box2x+30);
+     Ani.to(this, 2.0, "safe.box2y", safe.box2y+30);
+   }
+   else if(x>=safe.box3x && x<safe.box3x +safe.boxwidth && y>safe.box3y && y<safe.box3y+safe.boxheight){
+     Ani.to(this, 2.0, "safe.box3x", safe.box3x+30);
+     Ani.to(this, 2.0, "safe.box3y", safe.box3y+30);
+   }
+   else if(x>=safe.box4x && x<safe.box4x +safe.boxwidth && y>safe.box4y && y<safe.box4y+ safe.boxheight){
+     Ani.to(this, 2.0, "safe.box4x", safe.box4x+30);
+     Ani.to(this, 2.0, "safe.box4y", safe.box4y+30);
+   }
+   else if(x>=safe.box5x && x<safe.box5x +safe.boxwidth && y>safe.box5y && y<safe.box5y+safe.boxheight){
+     Ani.to(this, 2.0, "safe.box5x", safe.box5x+30);
+     Ani.to(this, 2.0, "safe.box5y", safe.box5y+30);
+   }
+   else if(x>=safe.box6x && x<safe.box6x +safe.boxwidth && y>safe.box6y && y<safe.box6y+safe.boxheight){
+     Ani.to(this, 2.0, "safe.box6x", safe.box6x+30);
+     Ani.to(this, 2.0, "safe.box6y", safe.box6y+30);
+   }
+  
+  //Ani.to(this, 1.0, "currentCatY", currentCatY+70);
 }//end mouseClicked()
 
 //Gradient Code
