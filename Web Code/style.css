@@ -10,6 +10,12 @@ green	#AEDA79		RGB(174, 218, 121)
 blue	#00BFD5		RGB(0, 191, 213)
 green	#64C770		RGB(100, 199, 112)
 
+triangle position 1		#0076E4
+triangle position 2		#0082E0
+triangle position 3		#008FDD
+triangle position 4		#009CD9
+triangle position 5		#00ABD5
+
 */
 
 body{
@@ -23,13 +29,199 @@ body{
 	left: 0px;
 	right: 0px;
 	position: absolute;
-	height: 10%;
+	min-height: 16%;
+	height: 16%;
 	min-width: 100%;
 	width: 100%;
 	background: linear-gradient(to bottom, #64C770, #AEDA79);
+	background: -webkit-linear-gradient(to bottom, #64C770, #AEDA79);
+}
+#ATL{
+	background: linear-gradient(to right, #0052AA, #006FE6);
+	background: -webkit-linear-gradient(to right, #0052AA, #006FE6);
+	top: 10%;
+	left: 0px;
+	width: 25%;
+	min-height: 80%;
+	height: 80%;
+	position: absolute;
+}
+#ATL img{
+	overflow: hidden;
+	position: absolute;
+	top: 50%;
+	margin-top: -37px;
+}
+#weather{
+	background-color: #AEDA79;
+	position: absolute;
+	top: 10%;
+	left: 25%;
+	min-height: 80%;
+	height: 80%;
+	width: 15%;
+	color: #1000C6;
+	font-family: 'Open Sans 800', sans-serif;
+	font-size: 36px;
+	text-align: right;
+	line-height: 2.5em;
+	padding-right: 10px;
+}
+#time{
+	float: right;
+	height: 80%;
+	color: #1000C6;
+	font-family: 'Open Sans 800', sans-serif;
+	font-size: 36px;
+	text-align: right;
+	padding-top: 10px;
+	padding-right: 10px;
 }
 
 /*NAVIGATION MENU*/
 #nav{
 	background: linear-gradient(to bottom, #006FE6, #00B1D3);
+	background: -webkit-linear-gradient(to bottom, #006FE6, #00B1D3);
+	top: 18%;
+	left: 7%;
+	position: absolute;
+	height: 70%;
+	width: 12%;
+}
+#nav ul{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+#nav ul span{
+	min-height: 13%;
+}
+#nav ul span a{
+	display:block;
+	text-align: center;
+	text-decoration: none;
+	color: #000000;
+	font-family: 'Open Sans 700', sans-serif;
+	font-size: 12px;
+}
+#nav ul span a:hover {
+	color: #1000C6;
+}
+#nav hr {
+	border-color: #00BFD5;
+}
+.top {
+	margin-top: 2px;
+}
+.img {
+	margin-left: 33%;
+	display:block;
+	width: 60px;
+	height:60px;
+}
+.safety {
+	background-image: url('images/safetyIcon.png'); 
+}
+a:hover .safety{
+	background-image: url('images/safetyHoverIcon.png'); 
+}
+.transportation {
+	background-image: url('images/carIcon.png'); 
+}
+a:hover .transportation{
+	background-image: url('images/carHoverIcon.png'); 
+}
+.transportation:hover {
+	background-image: url('images/carHoverIcon.png'); 
+}
+.industry {
+	background-image: url('images/industryIcon.png'); 
+}
+a:hover .industry{
+	background-image: url('images/industryHoverIcon.png'); 
+}
+.education {
+	background-image: url('images/bookIcon.png'); 
+}
+a:hover .education{
+	background-image: url('images/eduHoverIcon.png'); 
+}
+.environment {
+	background-image: url('images/environmentIcon.png'); 
+}
+a:hover .environment{
+	background-image: url('images/envHoverIcon.png'); 
+}
+
+/*MAIN CONTENT AREA*/
+#content{
+	background: linear-gradient(to bottom, #006FE6, #00B1D3);
+	top: 18%;
+	left: 20%;
+	position: absolute;
+	height: 70%;
+	width: 72%;
+}
+.dataSquare{
+	display: block;
+	width: 169px;
+	height: 116px;
+	background-image: url('images/dataBackground.png');
+}
+.leftarrowdiv:after{ /*arrow added to leftarrowdiv DIV*/
+content: '';
+display: block;
+position: absolute;
+top: 7%;
+left: -30px; /*should be set to -border-width x 2 */
+width: 0;
+height: 0;
+border-color: transparent #006FE6 transparent transparent; /*border color should be same as div div background color*/
+border-style: solid;
+border-width: 15px;
+/*animation definitions*/
+transition: top, 1s;
+transition: border-color, 1s;
+}
+
+/*FOOTER*/
+#footer{
+	bottom: 3%;
+	left: 0px;
+	right: 0px;
+	position: absolute;
+	min-height: 5%;
+	height: 5%;
+	min-width: 100%;
+	width: 100%;
+	background: linear-gradient(to bottom, #AEDA79, #64C770);
+}
+.footerTxt1{
+	left: 7%;
+	top: 50%;
+	margin-top: -6px;
+	position: absolute;
+	font-family: 'Open Sans 400', sans-serif;
+	font-size: 12px;
+}
+#footer ul{
+	list-style-type:none;
+	padding:0;
+	right: 8%;
+	top: 50%;
+	margin-top: -6px;
+	position: absolute;
+	font-family: 'Open Sans 400', sans-serif;
+	font-size: 12px;
+	float: right;
+}
+#footer ul li{
+	display: inline;
+}
+#footer ul li a{
+	text-decoration: none;
+	color: #000000;
+}
+#footer ul li a:hover{
+	color: #1000C6;
 }
