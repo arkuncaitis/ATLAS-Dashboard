@@ -45,6 +45,7 @@ body{
 	min-height: 80%;
 	height: 80%;
 	position: absolute;
+	overflow: hidden;
 }
 #ATL img{
 	overflow: hidden;
@@ -93,6 +94,7 @@ body{
 	position: absolute;
 	height: 70%;
 	width: 12%;
+	overflow: hidden;
 }
 #nav ul{
 	list-style-type:none;
@@ -169,6 +171,10 @@ a:hover .environment{
 	position: absolute;
 	height: 70%;
 	width: 72%;
+	/*overflow: hidden;*/
+}
+.contentWrapper{
+	overflow: hidden;
 }
 .dataSquare{
 	display: block;
@@ -203,6 +209,7 @@ transition: border-color, 1s;
 	min-width: 100%;
 	width: 100%;
 	background: linear-gradient(to bottom, #AEDA79, #64C770);
+	overflow: hidden;
 }
 .footerTxt1{
 	left: 7%;
@@ -235,4 +242,15 @@ transition: border-color, 1s;
 #footer ul li a:hover{
 	color: #1000C6;
 	/*color: #0052AB;*/
+}
+
+/*HOMEPAGE*/
+#scroll{
+
+}
+.categoryBox{
+
+}
+#getStarted{
+	position: absolute;
 }
