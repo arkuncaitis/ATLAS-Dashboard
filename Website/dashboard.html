@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<script type="text/javascript" src="jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="jquery.simpleWeather-2.3.min.js"></script>
+	<script type="text/javascript" src="moment.min.js"></script>
+	<script type="text/javascript" src="moment-timezone.min.js"></script>
+	<script type="text/javascript" src="moment-timezone-data.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+	<div id="header">
+		<div id="ATL">
+			<img src="images/header.png"></img>
+		</div>
+		<div id="weather"></div>
+		<div id="time"></div>
+	</div>
+	<div id="nav">
+		<ul>
+			<span><a href="#" on-click="active('safety');"><span class="top safety img"></span>SAFETY</a></span>
+			<hr/>
+			<span><a href="#" on-click="active('transportation');"><span class="transportation img"></span>TRANSPORTATION</a></span>
+			<hr/>
+			<span><a href="#" on-click="active('industry');"><span class="industry img"></span>INDUSTRY</a></span>
+			<hr/>
+			<span><a href="#" on-click="active('edu');"><span class="education img"></span>EDUCATION</a></span>
+			<hr/>
+			<span><a href="#" on-click="active('env');"><span class="environment img"></span>ENVIRONMENT</a></span>
+		</ul>
+	</div>
+	<div id="content" class="leftarrowdiv"></div>
+	<div id="footer">
+		<div class="footerTxt1">&copy; 2013 City of Atlanta. All Rights Reserved.</div>
+		<ul>
+			<li><a href="#" on-click="active('safety');">Safety</a>&#47;</li>
+			<li><a href="#" on-click="active('transportation');">Transportation</a>&#47;</li>
+			<li><a href="#" on-click="active('industry');">Industry</a>&#47;</li>
+			<li><a href="#" on-click="active('edu');">Education</a>&#47;</li>
+			<li><a href="#" on-click="active('env');">Environment</a></li>
+		</ul>
+	</div>
+</body>
+
+</html>
