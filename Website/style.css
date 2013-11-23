@@ -173,6 +173,12 @@ a:hover .environment{
 	width: 72%;
 	/*overflow: hidden;*/
 }
+
+.hidden,
+.leftarrowdiv.home{
+	display:none !important;
+}
+
 .contentWrapper{
 	overflow: hidden;
 }
@@ -186,7 +192,7 @@ a:hover .environment{
 content: '';
 display: block;
 position: absolute;
-top: 7%;
+/*top: 7%;*/
 left: -30px; /*should be set to -border-width x 2 */
 width: 0;
 height: 0;
@@ -196,7 +202,34 @@ border-width: 15px;
 /*animation definitions*/
 transition: top, 1s;
 transition: border-color, 1s;
+z-index: -1;
 }
+
+.leftarrowdiv.safety:after {
+top: 7% !important;
+border-color: transparent #006FE6 transparent transparent; /*border color should be same as div div background color*/
+}
+
+.leftarrowdiv.transportation:after {
+top: 27% !important;
+border-color: transparent #0082E0 transparent transparent; /*border color should be same as div div background color*/
+}
+
+.leftarrowdiv.industry:after {
+top: 47% !important;
+border-color: transparent #008FDD transparent transparent; /*border color should be same as div div background color*/
+}
+
+.leftarrowdiv.edu:after {
+top: 69% !important;
+border-color: transparent #009CD9 transparent transparent; /*border color should be same as div div background color*/
+}
+
+.leftarrowdiv.env:after {
+top: 89% !important;
+border-color: transparent #00ABD5 transparent transparent; /*border color should be same as div div background color*/
+}
+
 
 /*FOOTER*/
 #footer{
