@@ -215,6 +215,8 @@ a:hover .environment{
 	height: 110px;
 	/*background-image: url('images/dataBackground.png');*/
 	text-align: center;
+	cursor: pointer; 
+	cursor: hand;
 }
 
 .datasquare.selected{
