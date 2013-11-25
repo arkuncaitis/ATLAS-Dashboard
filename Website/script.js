@@ -41,6 +41,12 @@ var drawVisualization = function() {
 };
 
 var load = function() {
+	$(".close").click(function(event){
+		event.currentTarget.parentNode.parentNode.classList.remove('selected');
+		//event.currentTarget.parentNode.parentNode.removeClass("selected");	
+		selectedBox = '';
+		event.stopPropagation();
+	});
 	update();
 };
 
@@ -49,12 +55,33 @@ var update = function() {
 	$("#time").html(moment().format("dddd, MMMM D") + "<br/>" + moment().format("h:mm A"));
 };
 
+var selectedBox = '';
+var select = function(id) {
+	if (selectedBox == '') {
+		$("#"+id).addClass("selected");
+		selectedBox = id;
+	}
+	update();
+};
+
+var close = function(id) {
+}
+
+var resetSelected = function() {
+	if (selectedBox != '') {
+		$("#"+selectedBox).removeClass("selected");	
+		selectedBox = '';
+	}
+};
+
 var activeTab = 'home';
 var changeTab = function(newTab) {
 	$("#"+activeTab).addClass("hidden");
 	$("#"+newTab).removeClass("hidden");
 	$(".leftarrowdiv").removeClass(activeTab);
 	$(".leftarrowdiv").addClass(newTab);
+	
+	resetSelected();
 	
 	activeTab = newTab;
 };
@@ -66,7 +93,6 @@ var active = function(pageState){
 	}
 	else if(pageState == 'safety'){
 		changeTab('safety');
-		drawVisualization();
 		update();
 	}
 	else if(pageState == 'transportation'){
@@ -83,6 +109,7 @@ var active = function(pageState){
 	}
 	else if(pageState == 'env'){
 		changeTab('env');
+		drawVisualization();
 		update();
 	}
 	else{

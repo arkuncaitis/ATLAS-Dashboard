@@ -182,12 +182,128 @@ a:hover .environment{
 .contentWrapper{
 	overflow: hidden;
 }
-.dataSquare{
-	display: block;
-	width: 169px;
-	height: 116px;
-	background-image: url('images/dataBackground.png');
+
+.datarow {
+	clear:both;
 }
+
+.datarow.notitles{
+	padding-top: 25px;
+}
+
+.subtypeheader{
+	/*color: #1000C6;*/
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
+	
+	display: block;
+	padding: 20px 0px 10px 5px;
+	margin-left: 25px;
+	height: 20px;
+}
+
+.datasquare{
+	color: #1000C6;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+	
+	margin-left: 25px;
+	float: left;
+	
+	display: block;
+	width: 200px;
+	height: 110px;
+	/*background-image: url('images/dataBackground.png');*/
+	text-align: center;
+}
+
+.datasquare.selected{
+	position:absolute;
+	top: -10px;
+	left: 0px;
+	width: 900px;
+	height: 900px;
+	z-index: 2;
+	padding-top: 25px;
+}
+
+.datasquare.selected .dataheader{
+	display: none;
+}
+
+.datasquare.selected .databody{
+	height: 400px;
+}
+
+
+div.datasquare.selected div.databody span.normal{
+	display:none;
+}
+
+div.datasquare div.databody .enhanced{
+	display:none;
+}
+
+div.datasquare.selected div.databody .enhanced{
+	display:inline;
+}
+
+
+.datasquare.medium{
+	margin-left: 70px;
+}
+
+.datasquare.medium.selected {
+	margin-left: 25px;
+}
+
+.close {
+	float:right;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
+	font-size: 30px;
+	padding-right:30px;
+	cursor: pointer;
+}
+
+.dataheader{
+	background: linear-gradient(to bottom, #AEDA79, #64C770);
+	padding-top:10px;
+	font-size: 14px;
+	width: 200px;
+	height: 30px;
+}
+
+.dataheader:after{ /*arrow added to leftarrowdiv DIV*/
+	content: '';
+	display: block;
+	position: relative;
+
+	width: 0px;
+	height: 0px;
+	top: 11px;
+	border-style: solid;
+	border-width: 10px 100px 0 100px;
+
+	border-color: #64C770 transparent transparent transparent; /*border color should be same as div div background color*/
+	border-style: solid;
+	border-width: 100%;
+}
+
+.databody {
+	width: 100%;
+	margin-top: 5px;
+	padding-top: 10px;
+	font-size: 36px;
+	
+	height: 60px;
+	background-color: #00BFD5;
+	
+	/*animation definitions*/
+	/*transition: all 1s;*/
+}
+
+
 .leftarrowdiv:after{ /*arrow added to leftarrowdiv DIV*/
 content: '';
 display: block;
