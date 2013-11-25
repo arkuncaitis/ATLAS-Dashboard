@@ -1,4 +1,4 @@
-/********************* Color reference chart**************** 
+/********************* Color reference chart****************
 
 blue	#0052AA		RGB(0, 82, 170)
 blue	#006FE6		RBG(0, 111, 230)
@@ -6,9 +6,9 @@ blue	#00B1D3		RGB(0, 177, 211)
 blue	#0F3CFF		RGB(15, 60, 255)
 blue	#1000C6		RGB(16, 0, 198)
 green	#71CA5E		RGB(113, 202, 94)
-green	#AEDA79		RGB(174, 218, 121)
+green	#AEDA79		RGB(174, 218, 121)		Greyscaled:	#ABABAB
 blue	#00BFD5		RGB(0, 191, 213)
-green	#64C770		RGB(100, 199, 112)
+green	#64C770		RGB(100, 199, 112)		Greyscaled:	#898989
 
 triangle position 1		#0076E4
 triangle position 2		#0082E0
@@ -16,7 +16,11 @@ triangle position 3		#008FDD
 triangle position 4		#009CD9
 triangle position 5		#00ABD5
 
-*/
+Greys
+#C2C2C2
+#F5F5F5
+
+************************************************************/
 
 body{
 	background-image:url("images/atlanta.jpg");
@@ -33,8 +37,8 @@ body{
 	height: 16%;
 	min-width: 100%;
 	width: 100%;
-	background: linear-gradient(to bottom, #64C770, #AEDA79);
-	background: -webkit-linear-gradient(to bottom, #64C770, #AEDA79);
+	background: linear-gradient(to bottom, #C2C2C2, #F5F5F5);
+	background: -webkit-linear-gradient(to bottom, #C2C2C2, #F5F5F5);
 }
 #ATL{
 	background: linear-gradient(to right, #0052AA, #006FE6);
@@ -54,7 +58,7 @@ body{
 	margin-top: -37px;
 }
 #weather{
-	background-color: #AEDA79;
+	background-color: #F5F5F5;
 	position: absolute;
 	top: 10%;
 	left: 25%;
@@ -126,8 +130,8 @@ body{
 .img {
 	margin-left: 33%;
 	display:block;
-	width: 60px;
-	height:60px;
+	width: 55px;
+	height:55px;
 }
 .safety {
 	background-image: url('images/safetyIcon.png'); 
@@ -173,130 +177,110 @@ a:hover .environment{
 	width: 72%;
 	/*overflow: hidden;*/
 }
-
 .hidden,
 .leftarrowdiv.home{
 	display:none !important;
 }
-
 .contentWrapper{
 	overflow: hidden;
 }
-
 .datarow {
 	clear:both;
 }
-
 .datarow.notitles{
 	padding-top: 25px;
 }
-
 .subtypeheader{
 	/*color: #1000C6;*/
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
-	
+	font-size: 21px;
 	display: block;
 	padding: 20px 0px 10px 5px;
 	margin-left: 25px;
 	height: 20px;
 }
-
 .datasquare{
 	color: #1000C6;
 	font-family: 'Open Sans', sans-serif;
-	font-weight: 600;
-	
+	font-weight: 600;	
 	margin-left: 25px;
 	float: left;
-	
 	display: block;
 	width: 200px;
-	height: 110px;
+	height: 130px;
 	/*background-image: url('images/dataBackground.png');*/
 	text-align: center;
 	cursor: pointer; 
 	cursor: hand;
 }
-
 .datasquare.selected{
 	position:absolute;
 	top: -10px;
 	left: 0px;
-	width: 900px;
-	height: 900px;
+	width: 90%;
+	height: 90%;
 	z-index: 2;
 	padding-top: 25px;
 }
-
 .datasquare.selected .dataheader{
 	display: none;
 }
-
 .datasquare.selected .databody{
-	height: 400px;
+	height: 95%;
 }
-
-
 div.datasquare.selected div.databody span.normal{
 	display:none;
 }
-
 div.datasquare div.databody .enhanced{
 	display:none;
+	height: 95%;
 }
-
 div.datasquare.selected div.databody .enhanced{
 	display:inline;
+	height: 95%;
 }
-
-
 .datasquare.medium{
 	margin-left: 70px;
 }
-
 .datasquare.medium.selected {
 	margin-left: 25px;
 }
-
 .close {
 	float:right;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 	font-size: 30px;
-	padding-right:30px;
+	/*padding-right:30px;*/
 	cursor: pointer;
+	position: absolute;
+	right: 1%;
+	top: 30px;
 }
-
 .dataheader{
 	background: linear-gradient(to bottom, #AEDA79, #64C770);
 	padding-top:10px;
 	font-size: 14px;
 	width: 200px;
-	height: 30px;
+	height: 50px;
 }
-
 .dataheader:after{ /*arrow added to leftarrowdiv DIV*/
 	content: '';
 	display: block;
 	position: relative;
-
 	width: 0px;
 	height: 0px;
-	top: 11px;
+	top: 31px;
 	border-style: solid;
-	border-width: 10px 100px 0 100px;
-
+	border-width: 10px 100px 0px 100px;
 	border-color: #64C770 transparent transparent transparent; /*border color should be same as div div background color*/
 	border-style: solid;
-	border-width: 100%;
 }
-
 .databody {
 	width: 100%;
 	margin-top: 5px;
 	padding-top: 10px;
-	font-size: 36px;
+	font-size: 21px;
 	
 	height: 60px;
 	background-color: #00BFD5;
@@ -304,8 +288,6 @@ div.datasquare.selected div.databody .enhanced{
 	/*animation definitions*/
 	/*transition: all 1s;*/
 }
-
-
 .leftarrowdiv:after{ /*arrow added to leftarrowdiv DIV*/
 content: '';
 display: block;
@@ -322,32 +304,93 @@ transition: top, 1s;
 transition: border-color, 1s;
 z-index: -1;
 }
-
 .leftarrowdiv.safety:after {
 top: 7% !important;
 border-color: transparent #006FE6 transparent transparent; /*border color should be same as div div background color*/
 }
-
 .leftarrowdiv.transportation:after {
 top: 27% !important;
 border-color: transparent #0082E0 transparent transparent; /*border color should be same as div div background color*/
 }
-
 .leftarrowdiv.industry:after {
 top: 47% !important;
 border-color: transparent #008FDD transparent transparent; /*border color should be same as div div background color*/
 }
-
 .leftarrowdiv.edu:after {
 top: 69% !important;
 border-color: transparent #009CD9 transparent transparent; /*border color should be same as div div background color*/
 }
-
 .leftarrowdiv.env:after {
 top: 89% !important;
 border-color: transparent #00ABD5 transparent transparent; /*border color should be same as div div background color*/
 }
 
+.expandedViewText{
+	background-color: #AEDA79;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	padding-top: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	min-width: 30%;
+	max-width: 30%;
+	width: 30%;
+	height: 91.8%;
+	min-height: 91.8%;
+	max-height: 91.8%;
+	font-size: 12px;
+	font-family: serif;
+	font-weight: 400;
+	top: 30px;
+	text-align: left;
+	color: #000000;
+	font-family: 'Noto Serif', serif;
+	cursor: default;
+}
+
+/*MAIN CONTENT AREA HOVER*/
+/*span{
+    background: none repeat scroll 0 0 #F8F8F8;
+    border: 5px solid #DFDFDF;
+    color: #717171;
+    font-size: 13px;
+    height: 30px;
+    letter-spacing: 1px;
+    line-height: 30px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    top: -80px;
+    left:-30px;
+    display:none;
+    padding:0 20px;
+}
+span:after{
+    content:'';
+    position:absolute;
+    bottom:-10px;
+    width:10px;
+    height:10px;
+    border-bottom:5px solid #dfdfdf;
+    border-right:5px solid #dfdfdf;
+    background:#f8f8f8;
+    left:50%;
+    margin-left:-5px;
+    -moz-transform:rotate(45deg);
+    -webkit-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+p{
+    margin:100px;
+    float:left;
+    position:relative;
+    cursor:pointer;
+}
+p:hover span{
+    display:block;
+}*/
 
 /*FOOTER*/
 #footer{
@@ -359,7 +402,8 @@ border-color: transparent #00ABD5 transparent transparent; /*border color should
 	height: 5%;
 	min-width: 100%;
 	width: 100%;
-	background: linear-gradient(to bottom, #AEDA79, #64C770);
+	background: linear-gradient(to bottom, #F5F5F5, #C2C2C2);
+	background: -webkit-linear-gradient(to bottom, #F5F5F5, #C2C2C2);
 	overflow: hidden;
 }
 .footerTxt1{
