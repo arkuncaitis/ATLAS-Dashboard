@@ -36,7 +36,8 @@ var drawVisualization = function() {
 	new google.visualization.ColumnChart(document.getElementById('visualization')).
 		draw(data,
 			 {title:"Total Dispatched 911 Calls",
-			  width:600, height:400,
+			  width:400, height:200,
+			  backgroundColor: { fill:'transparent' },
 			  hAxis: {title: "2013"}});
 };
 
@@ -109,7 +110,7 @@ var active = function(pageState){
 	}
 	else if(pageState == 'env'){
 		changeTab('env');
-		drawVisualization();
+		//drawVisualization();
 		update();
 	}
 	else{

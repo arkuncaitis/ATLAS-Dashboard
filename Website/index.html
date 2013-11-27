@@ -235,7 +235,7 @@
 				
 				<div class="datarow notitles">
 					<div id="trans1x2" onclick="select('trans1x2')" class="datasquare">
-						<div class="dataheader">Repairs: Streets & Bridges (within SLA)</div>
+						<div class="dataheader longtext">Repairs: Streets & Bridges (within SLA)</div>
 						<div class="databody">
 							<span class="normal">91% & 70% (avg)</span>
 							<span class="enhanced">
@@ -252,7 +252,7 @@
 						</div>
 					</div>
 					<div id="trans2x2" onclick="select('trans2x2')" class="datasquare">
-						<div class="dataheader">Repairs: Sidewalks & Signs (within SLA)</div>
+						<div class="dataheader longtext">Repairs: Sidewalks & Signs (within SLA)</div>
 						<div class="databody">
 							<span class="normal">93% & 89% (avg)</span>
 							<span class="enhanced">
@@ -269,7 +269,7 @@
 						</div>
 					</div>
 					<div id="trans3x2" onclick="select('trans3x2')" class="datasquare">
-						<div class="dataheader">Repairs: Street Lights & Traffic Signals (within SLA)</div>
+						<div class="dataheader longtext">Repairs: Street Lights & Traffic Signals (within SLA)</div>
 						<div class="databody">
 							<span class="normal">90% & 87% (avg)</span>
 							<span class="enhanced">
@@ -294,7 +294,7 @@
 			<div id="industry" class="hidden">
 				<div class="datarow notitles">
 					<div id="industry1x1" onclick="select('industry1x1')" class="datasquare medium">
-						<div class="dataheader">Total New WIA Clients (July 2013)</div>
+						<div class="dataheader longtext">Total New WIA Clients (July 2013)</div>
 						<div class="databody">
 							<span class="normal">292 (avg)</span>
 							<span class="enhanced">
@@ -329,7 +329,7 @@
 				
 				<div class="datarow notitles">
 					<div id="industry1x2" onclick="select('industry1x2')" class="datasquare medium">
-						<div class="dataheader">AWDA Youth Attainment (July 2013)</div>
+						<div class="dataheader longtext">AWDA Youth Attainment (July 2013)</div>
 						<div class="databody">
 							<span class="normal">43%</span>
 							<span class="enhanced">
@@ -349,7 +349,7 @@
 						</div>
 					</div>
 					<div id="industry2x2" onclick="select('industry2x2')" class="datasquare medium">
-						<div class="dataheader">Total WIA Adult Program Graduations (July 2013)</div>
+						<div class="dataheader longtext">Total WIA Adult Program Graduations (July 2013)</div>
 						<div class="databody">
 							<span class="normal">44</span>
 							<span class="enhanced">
@@ -372,7 +372,7 @@
 			<div id="edu" class="hidden">
 				<div class="datarow notitles">
 					<div id="education1x1" onclick="select('education1x1')" class="datasquare">
-						<div class="dataheader">Youth Enrolled in After-School Programs</div>
+						<div class="dataheader longtext">Youth Enrolled in After-School Programs</div>
 						<div class="databody">
 							<span class="normal">1,134 (avg)</span>
 							<span class="enhanced">
@@ -392,7 +392,7 @@
 						</div>
 					</div>
 					<div id="education2x1" onclick="select('education2x1')" class="datasquare">
-						<div class="dataheader">Youth Enrolled in Recreation Center Programs</div>
+						<div class="dataheader longtext">Youth Enrolled in Recreation Center Programs</div>
 						<div class="databody">
 							<span class="normal">1,619 (avg)</span>
 							<span class="enhanced">
@@ -535,10 +535,9 @@
 			
 			<!-- ENVIRONTMENT -->
 			<div id="env" class="hidden">
-			<!--<div id="visualization"></div>-->
 				<div class="datarow notitles">
 					<div id="env1x1" onclick="select('env1x1')" class="datasquare medium">
-						<div class="dataheader">Compliance Rate: Drinking & Waste Water</div>
+						<div class="dataheader longtext">Compliance Rate: Drinking & Waste Water</div>
 						<div class="databody">
 							<span class="normal">100% & 98% (avg)</span>
 							<span class="enhanced">
@@ -557,6 +556,8 @@
 							<li>Improve the environment while supporting economic development</li>
 							</ul>
 							</div>
+							
+							<!--<div id="visualization"></div>-->
 							
 							</span>
 							<span class="enhanced close">X</span>
@@ -605,7 +606,7 @@
 						</div>
 					</div>
 					<div id="env2x2" onclick="select('env2x2')" class="datasquare medium">
-						<div class="dataheader">Dead Animal Removal (within SLA)</div>
+						<div class="dataheader longtext">Dead Animal Removal (within SLA)</div>
 						<div class="databody">
 							<span class="normal">97% (avg)</span>
 							<span class="enhanced">
@@ -622,7 +623,7 @@
 				</div>
 			</div>
 
-			<div id="scroll"></div>
+			
 			<div id="getStarted"></div>
 			<div class="categoryBox"></div>
 		</div>
@@ -630,11 +631,11 @@
 	<div id="footer">
 		<div class="footerTxt1">&copy; 2013 City of Atlanta. All Rights Reserved.</div>
 		<ul>
-			<li><a href="#" on-click="active('safety');">Safety</a>&#47;</li>
-			<li><a href="#" on-click="active('transportation');">Transportation</a>&#47;</li>
-			<li><a href="#" on-click="active('industry');">Industry</a>&#47;</li>
-			<li><a href="#" on-click="active('edu');">Education</a>&#47;</li>
-			<li><a href="#" on-click="active('env');">Environment</a></li>
+			<li><a href="#" onclick="active('safety');">Safety</a>&#47;</li>
+			<li><a href="#" onclick="active('transportation');">Transportation</a>&#47;</li>
+			<li><a href="#" onclick="active('industry');">Industry</a>&#47;</li>
+			<li><a href="#" onclick="active('edu');">Education</a>&#47;</li>
+			<li><a href="#" onclick="active('env');">Environment</a></li>
 		</ul>
 	</div>
 </body>

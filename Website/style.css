@@ -276,6 +276,9 @@ div.datasquare.selected div.databody .enhanced{
 	border-color: #64C770 transparent transparent transparent; /*border color should be same as div div background color*/
 	border-style: solid;
 }
+.dataheader.longtext:after{
+	top:11px;
+}
 .databody {
 	width: 100%;
 	margin-top: 5px;
@@ -326,7 +329,8 @@ border-color: transparent #00ABD5 transparent transparent; /*border color should
 }
 
 .expandedViewText{
-	background-color: #AEDA79;
+	background: linear-gradient(to bottom, #F5F5F5, #C2C2C2);
+	background: -webkit-linear-gradient(to bottom, #F5F5F5, #C2C2C2);
 	position: absolute;
 	top: 0px;
 	left: 0px;
