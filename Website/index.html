@@ -3,6 +3,7 @@
 	
 <head>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="googleChartData.js"></script>
 	<script type="text/javascript" src="jquery-2.0.3.min.js"></script>
 	<script type="text/javascript" src="jquery.simpleWeather-2.3.min.js"></script>
 	<script type="text/javascript" src="moment.min.js"></script>
@@ -52,6 +53,10 @@
 			</div>-->
 			
 			<div id="getStarted" class="subtypeheader">Get Started</div>
+			
+			<div class="categoryBox categorySafety" onclick="active('safety');"></div>
+			<div class="categoryBox categoryIndustry" onclick="active('industry');"></div>
+			<div class="categoryBox categoryEdu" onclick="active('edu');"></div>
 		</div>
 	</div>
 	<div id="content" class="leftarrowdiv home">
@@ -62,7 +67,7 @@
 				<div class="datarow">
 					<div class="subtypeheader">Crime</div>
 					<div id="safety1x1" onclick="select('safety1x1')" class="datasquare">
-						<div class="dataheader">Total 911 Calls</div>
+						<div class="dataheader red">Total 911 Calls</div>
 						<div class="databody">
 							<span class="normal">30,589 (avg)</span>
 							<span class="enhanced">
@@ -76,6 +81,8 @@
 								<li>processes requests for 911 tapes and printouts for citizen and law enforcement personnel; takes reports on designated, non-emergency crimes and completes GCIC/NCIC forms on missing persons and stolen autos.</li>
 							</ul>
 							</div>
+								
+							<div class="visualization"></div>
 								
 							</span>
 							<span class="enhanced close">X</span>
@@ -103,6 +110,8 @@
 							</ul>
 							</div>
 							
+							<div class="visualization"></div>
+							
 							</span>
 							<span class="enhanced close">X</span>
 						</div>
@@ -117,6 +126,8 @@
 							<p style="font-size: 16px; font-weight: 600; color: #0052AB;">The Atlanta Police Department</p>
 							With an authorized strength of over 2000 sworn officers, the Atlanta Police Department is the largest law enforcement agency in the State of Georgia. A full-service police agency, the Department has adopted a community oriented philosophy and relies heavily upon community input and collaborative problem-solving strategies. It is through heightened community involvement in public safety matters that the Atlanta Police Department will most effectively address its three major priorities of (1) youth-related crime, (2) domestic violence, and (3) the perception of crime in Atlanta.
 							</div>
+							
+							<div class="visualization"></div>
 							
 							</span>
 							<span class="enhanced close">X</span>
@@ -141,6 +152,8 @@
 							<p><b>The Atlanta Emergency Preparedness Institute (AEPI)</b> partners with the corporate sector and non-governmental organizations to enhance collaboration, cooperation with city government to prevent and mitigate disasters when they occur.</p>
 							</div>
 							
+							<div class="visualization"></div>
+							
 							</span>
 							<span class="enhanced close">X</span>
 						</div>
@@ -158,6 +171,8 @@
 							
 							<p>Atlanta Fire Rescue provides prompt quality services to our stakeholders that promote safety, security, enhances sustainability, and enriches the quality of life through professional development and dedication to service.</p>
 							</div>
+							
+							<div class="visualization"></div>
 							
 							</span>
 							<span class="enhanced close">X</span>
@@ -179,6 +194,8 @@
 							support services comprise a strategic approach to the overall organizational priorities.
 							</div>
 							
+							<div class="visualization"></div>
+							
 							</span>
 							<span class="enhanced close">X</span>
 						</div>
@@ -191,7 +208,7 @@
 			<div id="transportation" class="hidden">
 				<div class="datarow notitles">
 					<div id="trans1x1" onclick="select('trans1x1')" class="datasquare">
-						<div class="dataheader">Total Traffic Cases Filed</div>
+						<div class="dataheader red">Total Traffic Cases Filed</div>
 						<div class="databody">
 							<span class="normal">13,568 (avg)</span>
 							<span class="enhanced">
@@ -208,7 +225,7 @@
 						</div>
 					</div>
 					<div id="trans2x1" onclick="select('trans2x1')" class="datasquare">
-						<div class="dataheader">Settled Traffic Tickets</div>
+						<div class="dataheader red">Settled Traffic Tickets</div>
 						<div class="databody">
 							<span class="normal">20 (avg)</span>
 							<span class="enhanced">
@@ -220,7 +237,7 @@
 						</div>
 					</div>
 					<div id="trans3x1" onclick="select('trans3x1')" class="datasquare">
-						<div class="dataheader">Undisposed Traffic Tickets</div>
+						<div class="dataheader red">Undisposed Traffic Tickets</div>
 						<div class="databody">
 							<span class="normal">35 (avg)</span>
 							<span class="enhanced">
@@ -564,7 +581,7 @@
 						</div>
 					</div>
 					<div id="env2x1" onclick="select('env2x1')" class="datasquare medium">
-						<div class="dataheader">Total Waste Collected</div>
+						<div class="dataheader red">Total Waste Collected</div>
 						<div class="databody">
 							<span class="normal">9,605 tons (avg)</span>
 							<span class="enhanced">
@@ -584,7 +601,7 @@
 				</div>
 				<div class="datarow notitles">
 					<div id="env1x2" onclick="select('env1x2')" class="datasquare medium">
-						<div class="dataheader">Total Waste Landfilled</div>
+						<div class="dataheader red">Total Waste Landfilled</div>
 						<div class="databody">
 							<span class="normal">12,681 tons (avg)</span>
 							<span class="enhanced">
@@ -631,6 +648,7 @@
 	<div id="footer">
 		<div class="footerTxt1">&copy; 2013 City of Atlanta. All Rights Reserved.</div>
 		<ul>
+			<li><a href="#" onclick="active('home');">Home</a>&#47;</li>
 			<li><a href="#" onclick="active('safety');">Safety</a>&#47;</li>
 			<li><a href="#" onclick="active('transportation');">Transportation</a>&#47;</li>
 			<li><a href="#" onclick="active('industry');">Industry</a>&#47;</li>

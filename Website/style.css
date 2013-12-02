@@ -264,6 +264,14 @@ div.datasquare.selected div.databody .enhanced{
 	width: 200px;
 	height: 50px;
 }
+
+.dataheader.red{
+	background: linear-gradient(to bottom, #FB9392, #FD8584);
+}
+.dataheader.red:after{
+	border-color: #FD8584 transparent transparent transparent; /*border color should be same as div div background color*/
+}
+
 .dataheader:after{ /*arrow added to leftarrowdiv DIV*/
 	content: '';
 	display: block;
@@ -351,6 +359,10 @@ border-color: transparent #00ABD5 transparent transparent; /*border color should
 	color: #000000;
 	font-family: 'Noto Serif', serif;
 	cursor: default;
+}
+
+.visualization{
+	left: 30%;
 }
 
 /*MAIN CONTENT AREA HOVER*/
@@ -515,8 +527,25 @@ p:hover span{
 	position: absolute;
 }
 .categoryBox{
-
+	height: 110px;
+	width: 110px;
+	background-size: 110px 110px;
+	margin-top: 30%;
+	position:absolute;
 }
+.categorySafety{
+	background-image:url("images/stock_safety.jpg");
+	margin-left: 35px;
+}
+.categoryIndustry{
+	background-image:url("images/stock_industry.jpg");
+	margin-left: 235px;
+}
+.categoryEdu{
+	background-image:url("images/stock_edu.jpg");
+	margin-left: 435px;
+}
+
 #getStarted{
 	position: absolute;
 	top: 53%;

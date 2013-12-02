@@ -1,5 +1,3 @@
-google.load('visualization', '1', {packages: ['corechart']});
-
 var updateWeather = function() {
 	$.simpleWeather({
 		zipcode: '30308',
@@ -18,27 +16,6 @@ var updateWeather = function() {
 			//$("#weather").html("<p>"+error+"</p>");
 		}
 	});
-};
-
-var drawVisualization = function() {
-	// Create and populate the data table.
-	var data = google.visualization.arrayToDataTable([
-	  ['Month', 'Total Dispatched 911 Calls'],
-	  ['Jan', 29895],
-	  ['Feb',  25277],
-	  ['March',  29337],
-	  ['April',  30436],
-	  ['May',  31358],
-	  ['June', 33864],
-	  ['July', 33959]
-	]);
-	// Create and draw the visualization.
-	new google.visualization.ColumnChart(document.getElementById('visualization')).
-		draw(data,
-			 {title:"Total Dispatched 911 Calls",
-			  width:400, height:200,
-			  backgroundColor: { fill:'transparent' },
-			  hAxis: {title: "2013"}});
 };
 
 var load = function() {
@@ -60,6 +37,7 @@ var selectedBox = '';
 var select = function(id) {
 	if (selectedBox == '') {
 		$("#"+id).addClass("selected");
+		drawVisualization(id);
 		selectedBox = id;
 	}
 	update();
@@ -110,7 +88,6 @@ var active = function(pageState){
 	}
 	else if(pageState == 'env'){
 		changeTab('env');
-		//drawVisualization();
 		update();
 	}
 	else{
