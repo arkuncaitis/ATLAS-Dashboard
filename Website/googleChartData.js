@@ -145,6 +145,7 @@ var drawVisualization = function(name) {
         ]);
         
         options = {title:"Traffic Tickets Undisposed: June 2013",
+				  width:500, height:300,
                   backgroundColor: {fill: 'transparent'}};
 		}
 		
