@@ -546,11 +546,19 @@ p:hover span{
 }
 .categoryIndustry{
 	background-image:url("images/stock_industry.jpg");
-	margin-left: 235px;
+	margin-left: 435px;
 }
 .categoryEdu{
 	background-image:url("images/stock_edu.jpg");
-	margin-left: 435px;
+	margin-left: 635px;
+}
+.categoryEnv{
+	background-image:url("images/stock_env.jpg");
+	margin-left: 835px;
+}
+.categoryTransportation{
+	background-image:url("images/stock_transportation.jpg");
+	margin-left: 235px;
 }
 
 #getStarted{
