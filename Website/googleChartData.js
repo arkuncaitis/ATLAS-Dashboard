@@ -247,17 +247,15 @@ var drawVisualization = function(name) {
                         hAxis: {title: "2013"}};
 		}
 		
-		//wrong chart
 		else if(name == 'industry1x2'){
 		 var data = google.visualization.arrayToDataTable([
-                      ['Month', 'Total Youth Attainment'],
-                      ['July 2013', 234]
+                      ['Month', 'Youth Attainment', 'Youth Placement'],
+                      ['July 2013', 234, 550]
                       ]);
         
-        options = {title:"Total Youth Attainment",
-                        width:500, height:300, legend: 'none',
-                        backgroundColor: {fill: 'transparent'},
-                        hAxis: {title: "2013"}};
+        options = {title:"Total Youth Attainment vs. Youth Placement",
+                              width:500, height:300,
+                              backgroundColor: {fill: 'transparent'}};
 		}
 		
 		else if(name == 'industry2x2'){

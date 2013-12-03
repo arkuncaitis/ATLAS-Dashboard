@@ -25,6 +25,7 @@ Greys
 body{
 	background-image:url("images/atlanta.jpg");
 	background-size:100%;
+	overflow: hidden;
 }
 
 /*HEADER*/
@@ -360,6 +361,7 @@ border-color: transparent #00ABD5 transparent transparent; /*border color should
 	color: #000000;
 	font-family: 'Noto Serif', serif;
 	cursor: default;
+	overflow: hidden;
 }
 
 .visualization{
@@ -480,11 +482,11 @@ p:hover span{
 	background-size:100%;
 	margin-top: 30px;
 	margin-left: 30px;
-	min-width: 70%;
-	width: 70%;
+	min-width: 65%;
+	width: 65%;
 	min-height: 200px;
 	height: 40%;
-	width: 70%;
+	width: 65%;
 	/*opacity:0.4;
 	filter:alpha(opacity=40);
 	-moz-opacity: 0.4;
