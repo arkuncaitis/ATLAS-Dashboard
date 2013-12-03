@@ -137,17 +137,15 @@ var drawVisualization = function(name) {
 		chartArea: {  width: "50%", height: "70%" }};
 		}
 		
-		//wrong chart
 		else if(name == 'trans3x1'){
 		var data = google.visualization.arrayToDataTable([
-		['Month', 'Traffic Tickets Adjudicated within 10 Days', 'Traffic Tickets Adjudicated within 30 Days', 'Traffic Tickets Adjudicated within 60 Days'],
-		['June 2013', .10, .27, .22] ]);
+          ['June 2013', 'Percent'],
+          ['Traffic Tickets Undisposed', 35],
+          ['Traffic Tickets Adjudicated', 65]
+        ]);
         
-        options = {title:"Traffic Tickets Adjudicated",
-		width:500, height:300,
-		backgroundColor: {fill: 'transparent'},
-		vAxis: {format:'#%'},
-		chartArea: {  width: "50%", height: "70%" }};
+        options = {title:"Traffic Tickets Undisposed: June 2013",
+                  backgroundColor: {fill: 'transparent'}};
 		}
 		
 		else if(name == 'trans1x2'){
@@ -251,15 +249,9 @@ var drawVisualization = function(name) {
 		//wrong chart
 		else if(name == 'industry1x2'){
 		 var data = google.visualization.arrayToDataTable([
-                ['Month', '# of Employees in City Workforce'],
-                ['Jan', 7440],
-                ['Feb', 7441],
-                ['March', 7450],
-                ['April', 7502],
-                ['May', 7514],
-                ['June', 7521],
-                ['July', 7568]
-                ]);
+                      ['Month', 'Total Youth Attainment'],
+                      ['July 2013', 234]
+                      ]);
         
         options = {title:"Total Employees in City Workforce",
                         width:500, height:300, legend: 'none',
@@ -273,9 +265,9 @@ var drawVisualization = function(name) {
                 ['July 2013', 44, 44]
                 ]);
         
-        options = {title:"WIA Adult Program Graduations/Completions",
-                        width:500, height:300,
-                        backgroundColor: {fill: 'transparent'}};
+        options =  {title:"Total Youth Attainment",
+                              width:300, height:400, legend: 'none', 
+                              backgroundColor: {fill: 'transparent'}};
 		}
 		
 		//EDUCATION
