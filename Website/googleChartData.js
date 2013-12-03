@@ -254,7 +254,7 @@ var drawVisualization = function(name) {
                       ['July 2013', 234]
                       ]);
         
-        options = {title:"Total Employees in City Workforce",
+        options = {title:"Total Youth Attainment",
                         width:500, height:300, legend: 'none',
                         backgroundColor: {fill: 'transparent'},
                         hAxis: {title: "2013"}};
@@ -266,9 +266,10 @@ var drawVisualization = function(name) {
                 ['July 2013', 44, 44]
                 ]);
         
-        options =  {title:"Total Youth Attainment",
-                              width:300, height:400, legend: 'none', 
-                              backgroundColor: {fill: 'transparent'}};
+        options =  {title:"WIA Adult Program Graduations/Completions",
+                              width:500, height:300, 
+                              backgroundColor: {fill: 'transparent'}
+							  };
 		}
 		
 		//EDUCATION
