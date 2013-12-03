@@ -362,6 +362,9 @@ border-color: transparent #00ABD5 transparent transparent; /*border color should
 }
 
 .visualization{
+	left: 40%;
+}
+.legend{
 	left: 30%;
 }
 

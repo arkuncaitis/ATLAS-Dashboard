@@ -16,7 +16,7 @@ var drawVisualization = function(name) {
         ]);
 		
 		options = {title: "911 Calls Answered in 10 Seconds",
-                  width:600, height:400,legend :'none',
+                  width:500, height:300,legend :'none',
                   backgroundColor: { fill: 'transparent'},
                   hAxis: {title: "2013"},
                   vAxis: {format:'#%'}};
@@ -34,7 +34,7 @@ var drawVisualization = function(name) {
 		
 		options = {title:"New Police Officer Hires",
                   curveType: "function",
-                  width: 600, height: 400,legend:'none',
+                  width: 500, height: 300,legend:'none',
                   backgroundColor: { fill: 'transparent'},
                   vAxis: {maxValue: 10},
                   hAxis: {title: "2013"}};
@@ -54,7 +54,7 @@ var drawVisualization = function(name) {
         ]);
 		
 		options = {title:"Total Shootings vs. Non-Fatal Shootings",
-                  width:600, height:400,
+                  width:500, height:300,
                   backgroundColor: { fill: 'transparent'},
                   hAxis: {title: "2013"}};
 		}
@@ -69,7 +69,7 @@ var drawVisualization = function(name) {
         ]);
         
         options = {title:"Total Number of Fire Alarms",
-                  width:600, height:400, legend: 'none',
+                  width:500, height:300, legend: 'none',
                    backgroundColor: { fill: 'transparent'},
                   hAxis: {title: "2013"}};
 		}
@@ -87,7 +87,7 @@ var drawVisualization = function(name) {
           ]);
         
         options = {title:"Total Fire Events",
-                  width:600, height:400, legend: 'none',
+                  width:500, height:300, legend: 'none',
                   backgroundColor: { fill: 'transparent'},
                   hAxis: {title: "2013"}};
 		}
@@ -102,7 +102,7 @@ var drawVisualization = function(name) {
         ]);
         
         options = {title:"Maximum Fire Turnout Time",
-                  width:600, height:400, legend: 'none',
+                  width:500, height:300, legend: 'none',
                   backgroundColor: {fill: 'transparent'},
                   hAxis: {title: "2013"},
                   vAxis: {title: "time in seconds"}};
@@ -117,7 +117,7 @@ var drawVisualization = function(name) {
                 ]);
         
         options = {title:"Number of Traffic Cases Filed",
-                        width:600, height:400, legend: 'none',
+                        width:500, height:300, legend: 'none',
                         backgroundColor: {fill: 'transparent'},
                         hAxis: {title: "2013"}};
 		}
@@ -128,19 +128,20 @@ var drawVisualization = function(name) {
 		['June 2013', .10, .27, .22] ]);
         
         options = {title:"Traffic Tickets Adjudicated",
-		width:600, height:400,
+		width:500, height:300,
 		backgroundColor: {fill: 'transparent'},
 		vAxis: {format:'#%'},
 		chartArea: {  width: "50%", height: "70%" }};
 		}
 		
+		//wrong chart
 		else if(name == 'trans3x1'){
 		var data = google.visualization.arrayToDataTable([
 		['Month', 'Traffic Tickets Adjudicated within 10 Days', 'Traffic Tickets Adjudicated within 30 Days', 'Traffic Tickets Adjudicated within 60 Days'],
 		['June 2013', .10, .27, .22] ]);
         
         options = {title:"Traffic Tickets Adjudicated",
-		width:600, height:400,
+		width:500, height:300,
 		backgroundColor: {fill: 'transparent'},
 		vAxis: {format:'#%'},
 		chartArea: {  width: "50%", height: "70%" }};
@@ -157,14 +158,14 @@ var drawVisualization = function(name) {
         
         options = {
           title : 'Asphalt/Street Repair Completed within SLA',
-          width: 600,
-          height: 400,
+          width: 500,
+          height: 300,
           vAxis: {format:'#%'},
           hAxis: {title: "2013"},
           backgroundColor: {fill: 'transparent'},
           chartArea: {  width: "50%", height: "70%" },
           seriesType: "bars",
-          series: {1: {type: "line"}};
+          series: {1: {type: "line"}}};
 		}
 		
 		else if(name == 'trans2x2'){
@@ -178,8 +179,8 @@ var drawVisualization = function(name) {
         
         options = {
           title : 'Sidewalk/Concrete Repair Completed within SLA',
-          width: 700,
-          height: 400,
+          width: 600,
+          height: 300,
           vAxis: {format:'#%'},
           hAxis: {title: "2013"},
           backgroundColor: {fill: 'transparent'},
@@ -199,8 +200,8 @@ var drawVisualization = function(name) {
         
         options = {
           title : 'Street Light Repair Completed within SLA',
-          width: 600,
-          height: 400,
+          width: 500,
+          height: 300,
           vAxis: {format:'#%'},
           hAxis: {title: "2013"},
           backgroundColor: { fill: 'transparent'},
@@ -220,7 +221,7 @@ var drawVisualization = function(name) {
         
         options = {title:"New WIA Clients",
                   curveType: "function",
-                  width: 600, height: 400,legend:'none',
+                  width: 500, height: 300,legend:'none',
                   backgroundColor: {fill: 'transparent'},
                  hAxis: {title: "July 2013"}};
 		}
@@ -238,7 +239,7 @@ var drawVisualization = function(name) {
                 ]);
         
         options = {title:"Total Employees in City Workforce",
-                        width:600, height:400, legend: 'none',
+                        width:500, height:300, legend: 'none',
                         backgroundColor: {fill: 'transparent'},
                         hAxis: {title: "2013"}};
 		}
@@ -257,7 +258,7 @@ var drawVisualization = function(name) {
                 ]);
         
         options = {title:"Total Employees in City Workforce",
-                        width:600, height:400, legend: 'none',
+                        width:500, height:300, legend: 'none',
                         backgroundColor: {fill: 'transparent'},
                         hAxis: {title: "2013"}};
 		}
@@ -269,7 +270,7 @@ var drawVisualization = function(name) {
                 ]);
         
         options = {title:"WIA Adult Program Graduations/Completions",
-                        width:600, height:400,
+                        width:500, height:300,
                         backgroundColor: {fill: 'transparent'}};
 		}
 	
