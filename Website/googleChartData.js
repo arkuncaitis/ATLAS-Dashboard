@@ -3,6 +3,8 @@ google.load('visualization', '1', {packages: ['corechart']});
 var drawVisualization = function(name) {
 	var data, options;
 	var node = document.getElementById(name).getElementsByClassName('visualization')[0];
+	
+	//SAFETY
 	if (name == 'safety1x1') {
 		data = google.visualization.arrayToDataTable([
           ['Month', 'Percent'],
@@ -108,6 +110,7 @@ var drawVisualization = function(name) {
                   vAxis: {title: "time in seconds"}};
 		}
 		
+		//TRANSPORTATION
 		else if(name == 'trans1x1'){
 		var data = google.visualization.arrayToDataTable([
                 ['Month', '# of Traffic Cases Filed'],
@@ -210,6 +213,7 @@ var drawVisualization = function(name) {
         };
 		}
 		
+		//INDUSTRY
 		else if(name == 'industry1x1'){
 		 var data = google.visualization.arrayToDataTable([
           ['Type', 'New WIA Clients'],
@@ -272,6 +276,126 @@ var drawVisualization = function(name) {
         options = {title:"WIA Adult Program Graduations/Completions",
                         width:500, height:300,
                         backgroundColor: {fill: 'transparent'}};
+		}
+		
+		//EDUCATION
+		else if(name == 'education1x1'){
+		  var data = google.visualization.arrayToDataTable([
+                      ['Month', 'Youth Enrolled in After-School/CBF Programs'],
+                      ['Jan', 950],
+                      ['Feb', 992],
+                      ['March', 1027],
+                      ['April', 1113],
+                      ['May', 1120],
+                      ['June', 2420],
+                      ['July', 313]
+                      ]);
+        
+        options = {title:"Youth Enrolled in After-School/CBF Programs",
+                              width:500, height:300, legend: 'none',
+                              backgroundColor: {fill: 'transparent'},
+                              hAxis: {title: "2013"}};
+		}
+		
+		else if(name == 'education2x1'){
+		  var data = google.visualization.arrayToDataTable([
+                      ['Month', '# of Youth'],
+                      ['Jan', 1275],
+                      ['Feb', 1503],
+                      ['March', 1592],
+                      ['April', 1662],
+                      ['May', 1726],
+                      ['June', 2175],
+                      ['July', 1402]
+                      ]);
+        
+        options = {title:"Youth Served in Recreation Center Programs",
+                              width:500, height:300, legend: 'none',
+                              backgroundColor: {fill: 'transparent'},
+                              hAxis: {title: "2013"}};
+		}
+		
+		//ENVIRONMENT
+		else if(name == 'env1x1'){
+		   var data = google.visualization.arrayToDataTable([
+          ['Month', 'Drinking Water Compliance Rate as % of Prior 365 Days in Compliance', 'Wastewater Treatment Compliance Rate As % Of Prior 365 Days In Compliance', 'Target Goal'],
+          ['Jan',  1.00, .98, 1.00],
+          ['Feb',  1.00, .98, 1.00],
+          ['March',  1.00, .98, 1.00],
+          ['April',  1.00, .98, 1.00],
+          ['May',  1.00, .97, 1.00],
+          ['June',  1.00, .981, 1.00],
+          ['July',  1.00, .98, 1.00]
+        ]);
+        
+        options = {
+          title : 'Drinking Water Compliance Rate as % of Prior 365 Days in Compliance',
+          width: 500,
+          height: 350,
+          vAxis: {format:'#%', minValue: 0.00},
+          backgroundColor: {fill: 'transparent'},
+          hAxis: {title: "2013"},
+          seriesType: "bars",
+          series: {2: {type: "line"}}};
+		}
+		
+		else if(name == 'env2x1'){
+		   var data = google.visualization.arrayToDataTable([
+          ['Month', 'Total Citywide Waste Collected/Processed in Tonnage'],
+          ['Jan', 9072],
+          ['Feb', 7302],
+          ['March', 9799],
+          ['April', 9987.08],
+          ['May', 11101],
+          ['June', 10087],
+          ['July', 9889]
+        ]);
+        
+        options = {title:"Total Citywide Waste Collected/Processed in Tonnage",
+                  curveType: "function",
+                  width: 500, height: 300,legend:'none',
+                  backgroundColor: {fill: 'transparent'},
+                 hAxis: {title: "2013"}};
+		}
+		
+		else if(name == 'env1x2'){
+		   var data = google.visualization.arrayToDataTable([
+          ['Month', 'Total Tons'],
+          ['Janu', 13807.84],
+          ['Feb', 10726.01],
+          ['March', 13084.02],
+          ['April', 12997.21],
+          ['May', 12588],
+          ['June', 11766],
+          ['July', 13801],
+        ]);
+        
+        options = {title:"Total Tons of Waste Landfilled Citywide",
+                  curveType: "function",
+                  width: 500, height: 300,legend:'none',
+                  backgroundColor: {fill: 'transparent'},
+                 hAxis: {title: "2013"}};
+		}
+		
+		else if(name == 'env2x2'){
+		   var data = google.visualization.arrayToDataTable([
+          ['Month', 'Dead Animal Removal Completed within SLA', 'Target Goal'],
+          ['April',  .96, .90],
+          ['May',  .96, .90],
+          ['June',  .981, .90],
+          ['July',  .984, .90]
+        ]);
+        
+        options = {
+          title : 'Dead Animal Removal Completed Within SLA',
+          width: 500,
+          height: 300,
+          vAxis: {format:'#%', minValue: 0.00},
+          
+          hAxis: {title: "2013"},
+          backgroundColor: {fill: 'transparent'},
+          seriesType: "bars",
+          series: {1: {type: "line"}}};
 		}
 	
 	
