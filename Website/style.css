@@ -273,6 +273,13 @@ div.datasquare.selected div.databody .enhanced{
 .dataheader.red:after{
 	border-color: #AF090D transparent transparent transparent; /*border color should be same as div div background color*/
 }
+.dataheader.grey{
+	background: linear-gradient(to bottom, #F5F5F5, #C2C2C2);
+	background: -webkit-linear-gradient(to bottom, #F5F5F5, #C2C2C2);
+}
+.dataheader.grey:after{
+	border-color: #C2C2C2 transparent transparent transparent; /*border color should be same as div div background color*/
+}
 
 .dataheader:after{ /*arrow added to leftarrowdiv DIV*/
 	content: '';
@@ -369,6 +376,29 @@ border-color: transparent #00ABD5 transparent transparent; /*border color should
 }
 .legend{
 	left: 30%;
+}
+.chartabt{
+	left: 40%;
+	width: 500px;
+	overflow: hidden;
+	border: solid;
+	border-width: 2px;
+	padding: 10px, 10px, 10px, 10px;
+	position: absolute;
+	min-height: 2em;
+	clear:both;
+	color: #000000;
+	font-family: 'Noto Serif', serif;
+	text-align: left;
+	font-size: 12px;
+	display: inline;
+	max-height: 15%;
+}
+.chartabt.red{
+	border-color: #EA100E;
+}
+.chartabt.green{
+	border-color: #64C770;
 }
 
 /*MAIN CONTENT AREA HOVER*/
