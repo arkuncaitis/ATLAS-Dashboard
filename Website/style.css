@@ -536,6 +536,8 @@ p:hover span{
 	background-size: 110px 110px;
 	margin-top: 30%;
 	position:absolute;
+	cursor: pointer; 
+	cursor: hand;
 }
 .categorySafety{
 	background-image:url("images/stock_safety.jpg");
