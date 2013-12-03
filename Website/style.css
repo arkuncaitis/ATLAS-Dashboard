@@ -263,13 +263,14 @@ div.datasquare.selected div.databody .enhanced{
 	font-size: 14px;
 	width: 200px;
 	height: 50px;
+	color: #000000;
 }
 
 .dataheader.red{
-	background: linear-gradient(to bottom, #FB9392, #FD8584);
+	background: linear-gradient(to bottom, #EA100E, #AF090D);
 }
 .dataheader.red:after{
-	border-color: #FD8584 transparent transparent transparent; /*border color should be same as div div background color*/
+	border-color: #AF090D transparent transparent transparent; /*border color should be same as div div background color*/
 }
 
 .dataheader:after{ /*arrow added to leftarrowdiv DIV*/
