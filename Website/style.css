@@ -176,6 +176,7 @@ a:hover .environment{
 	position: absolute;
 	height: 70%;
 	width: 72%;
+	overflow: hidden;
 	/*overflow: hidden;*/
 }
 .hidden,
