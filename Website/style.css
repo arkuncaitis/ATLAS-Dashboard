@@ -401,9 +401,9 @@ top: 50%;
 	font-size: 12px;
 	display: inline;
 	max-height: 15%;
-	/*background-color: #F5F5F5;*/
-	background: linear-gradient(to bottom, #F5F5F5, #C2C2C2);
-	background: -webkit-linear-gradient(to bottom, #F5F5F5, #C2C2C2);
+	background-color: #F5F5F5;
+	/*background: linear-gradient(to bottom, #F5F5F5, #C2C2C2);
+	background: -webkit-linear-gradient(to bottom, #F5F5F5, #C2C2C2);*/
 }
 .chartabt.rightside{
 	top: 10%;
