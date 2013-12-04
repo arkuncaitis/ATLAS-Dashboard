@@ -401,6 +401,9 @@ top: 50%;
 	font-size: 12px;
 	display: inline;
 	max-height: 15%;
+	/*background-color: #F5F5F5;*/
+	background: linear-gradient(to bottom, #F5F5F5, #C2C2C2);
+	background: -webkit-linear-gradient(to bottom, #F5F5F5, #C2C2C2);
 }
 .chartabt.rightside{
 	top: 10%;
@@ -590,7 +593,6 @@ p:hover span{
 	cursor: pointer; 
 	cursor: hand;
 }
-
 .categorySafety{
 	height: 110px;
 	width: 110px;
@@ -626,8 +628,13 @@ p:hover span{
 	background-image:url("images/stock_transportation.jpg");
 	margin-left: 235px;
 }
+.categoryHeader{
 
+}
 #getStarted{
 	position: absolute;
 	top: 53%;
+}
+#homePgTxt{
+	
 }
