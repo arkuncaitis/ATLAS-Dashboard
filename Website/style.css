@@ -374,6 +374,14 @@ border-color: transparent #00ABD5 transparent transparent; /*border color should
 .visualization{
 	left: 40%;
 }
+
+.visualization.top{
+}
+
+.visualization.bottom{
+top: 50%;
+}
+
 .legend{
 	left: 30%;
 }
@@ -393,6 +401,13 @@ border-color: transparent #00ABD5 transparent transparent; /*border color should
 	font-size: 12px;
 	display: inline;
 	max-height: 15%;
+}
+.chartabt.rightside{
+	top: 10%;
+	left: 80%;
+	clear:none;
+	width: 15%;
+	max-height: 50%;
 }
 .chartabt.red{
 	border-color: #EA100E;
@@ -566,29 +581,48 @@ p:hover span{
 .categoryBox{
 	height: 110px;
 	width: 110px;
-	background-size: 110px 110px;
 	margin-top: 30%;
 	position:absolute;
+	text-align:center;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
+	font-size: 14px;
 	cursor: pointer; 
 	cursor: hand;
 }
+
 .categorySafety{
+	height: 110px;
+	width: 110px;
+	background-size: 110px 110px;
 	background-image:url("images/stock_safety.jpg");
 	margin-left: 35px;
 }
 .categoryIndustry{
+	height: 110px;
+	width: 110px;
+	background-size: 110px 110px;
 	background-image:url("images/stock_industry.jpg");
 	margin-left: 435px;
 }
 .categoryEdu{
+	height: 110px;
+	width: 110px;
+	background-size: 110px 110px;
 	background-image:url("images/stock_edu.jpg");
 	margin-left: 635px;
 }
 .categoryEnv{
+	height: 110px;
+	width: 110px;
+	background-size: 110px 110px;
 	background-image:url("images/stock_env.jpg");
 	margin-left: 835px;
 }
 .categoryTransportation{
+	height: 110px;
+	width: 110px;
+	background-size: 110px 110px;
 	background-image:url("images/stock_transportation.jpg");
 	margin-left: 235px;
 }

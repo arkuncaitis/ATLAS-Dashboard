@@ -54,11 +54,11 @@
 			
 			<div id="getStarted" class="subtypeheader">Get Started</div>
 			
-			<div class="categoryBox categorySafety" onclick="active('safety');"></div>
-			<div class="categoryBox categoryTransportation" onclick="active('transportation');"></div>
-			<div class="categoryBox categoryIndustry" onclick="active('industry');"></div>
-			<div class="categoryBox categoryEdu" onclick="active('edu');"></div>
-			<div class="categoryBox categoryEnv" onclick="active('env');"></div>
+			<div class="categoryBox categorySafety" onclick="active('safety');">Safety</div>
+			<div class="categoryBox categoryTransportation" onclick="active('transportation');">Transportation</div>
+			<div class="categoryBox categoryIndustry" onclick="active('industry');">Industry</div>
+			<div class="categoryBox categoryEdu" onclick="active('edu');">Education</div>
+			<div class="categoryBox categoryEnv" onclick="active('env');">Environment</div>
 		</div>
 	</div>
 	<div id="content" class="leftarrowdiv home">
@@ -84,7 +84,8 @@
 							</ul>
 							</div>
 								
-							<div class="visualization"></div>
+							<div class="visualization top"></div>
+							<div class="visualization bottom"></div>
 								
 							</span>
 							<span class="enhanced close">X</span>
@@ -113,7 +114,7 @@
 							</div>
 							
 							<div class="visualization"></div>
-							<div class = "chartabt"><img src="images/up_green.png"></img>The number of police officers hired has increased over the year</div>
+							<div class = "chartabt"><img src="images/up_green.png"></img>The number of police officers hired has been increasing over the year</div>
 							
 							</span>
 							<span class="enhanced close">X</span>
@@ -131,6 +132,7 @@
 							</div>
 							
 							<div class="visualization legend"></div>
+							<div class = "chartabt"><img src="images/down_green.png"></img>The number of shootings has been decreasing over the year</div>
 							
 							</span>
 							<span class="enhanced close">X</span>
@@ -141,7 +143,7 @@
 				<div class="datarow">
 					<div class="subtypeheader">Fire</div>
 					<div id="safety1x2" onclick="select('safety1x2')" class="datasquare">
-						<div class="dataheader">Total Alarms</div>
+						<div class="dataheader red">Total Alarms</div>
 						<div class="databody">
 							<span class="normal">557 (avg)</span>
 							<span class="enhanced">
@@ -156,6 +158,7 @@
 							</div>
 							
 							<div class="visualization"></div>
+							<div class = "chartabt"><img src="images/up_red.png"></img>The number of fire alarms has been increasing over the year</div>
 							
 							</span>
 							<span class="enhanced close">X</span>
@@ -176,13 +179,14 @@
 							</div>
 							
 							<div class="visualization"></div>
+							<div class = "chartabt"><img src="images/down_green.png"></img>The number of fires has been decreasing over the year</div>
 							
 							</span>
 							<span class="enhanced close">X</span>
 						</div>
 					</div>
 					<div id="safety3x2" onclick="select('safety3x2')" class="datasquare">
-						<div class="dataheader">Maximum Response Time</div>
+						<div class="dataheader grey">Maximum Response Time</div>
 						<div class="databody">
 							<span class="normal">143s (avg)</span>
 							<span class="enhanced">
@@ -224,13 +228,14 @@
 							</div>
 							
 							<div class="visualization"></div>
+							<div class = "chartabt"><img src="images/up_red.png"></img>The number of traffic tickets has been increasing over the year</div>
 							
 							</span>
 							<span class="enhanced close">X</span>
 						</div>
 					</div>
 					<div id="trans2x1" onclick="select('trans2x1')" class="datasquare">
-						<div class="dataheader red longtext">Settled Traffic Tickets (June 2013)</div>
+						<div class="dataheader grey longtext">Settled Traffic Tickets (June 2013)</div>
 						<div class="databody">
 							<span class="normal">20 (avg)</span>
 							<span class="enhanced">
@@ -247,7 +252,7 @@
 						</div>
 					</div>
 					<div id="trans3x1" onclick="select('trans3x1')" class="datasquare">
-						<div class="dataheader red longtext">Undisposed Traffic Tickets (June 2013)</div>
+						<div class="dataheader grey longtext">Undisposed Traffic Tickets (June 2013)</div>
 						<div class="databody">
 							<span class="normal">35 (avg)</span>
 							<span class="enhanced">
@@ -267,9 +272,9 @@
 				
 				<div class="datarow notitles">
 					<div id="trans1x2" onclick="select('trans1x2')" class="datasquare">
-						<div class="dataheader longtext">Repairs: Streets & Bridges (within SLA)</div>
+						<div class="dataheader">Repairs: Streets (within SLA)</div>
 						<div class="databody">
-							<span class="normal">91% & 70% (avg)</span>
+							<span class="normal">91% (avg)</span>
 							<span class="enhanced">
 							
 							<div class="enhanced expandedViewText">
@@ -280,15 +285,16 @@
 							</div>
 							
 							<div class="visualization legend"></div>
+							<div class = "chartabt"><img src="images/up_green.png"></img>The percent of streets repaired within SLA has been increasing over the year, and has met its target goal at least 50% of recorded months</div>
 							
 							</span>
 							<span class="enhanced close">X</span>
 						</div>
 					</div>
 					<div id="trans2x2" onclick="select('trans2x2')" class="datasquare">
-						<div class="dataheader longtext">Repairs: Sidewalks & Signs (within SLA)</div>
+						<div class="dataheader longtext">Repairs: Sidewalks & Street Lights (within SLA)</div>
 						<div class="databody">
-							<span class="normal">93% & 89% (avg)</span>
+							<span class="normal">93% & 90% (avg)</span>
 							<span class="enhanced">
 							
 							<div class="enhanced expandedViewText">
@@ -298,16 +304,19 @@
 							<p>Pedestrians Educating Drivers on Safety, Inc. (PEDS) works with government agencies, urban designers, community organizations and others to increase pedestrian safety and convenience in metro Atlanta. The Atlanta Department of Public Works partners with PEDS to gather more detailed and specific information about potential pedestrian hazards and sidewalk maintenance needs.</p>
 							</div>
 							
-							<div class="visualization legend"></div>
+							<div class="visualization top legend"></div>
+							<div class="visualization bottom legend"></div>
+							
+							<div class = "chartabt rightside"><img src="images/up_green.png"></img>The percent of sidewalks and street lights repaired within SLA has been increasing over the year, and has met its target goal at least 50% of recorded months</div>
 							
 							</span>
 							<span class="enhanced close">X</span>
 						</div>
 					</div>
 					<div id="trans3x2" onclick="select('trans3x2')" class="datasquare">
-						<div class="dataheader longtext">Repairs: Street Lights & Traffic Signals (within SLA)</div>
+						<div class="dataheader longtext">Repairs: Signs & Traffic Signals (within SLA)</div>
 						<div class="databody">
-							<span class="normal">90% & 87% (avg)</span>
+							<span class="normal">89% & 87% (avg)</span>
 							<span class="enhanced">
 							
 							<div class="enhanced expandedViewText">
@@ -318,7 +327,10 @@
 							The City of Atlanta is responsible for maintaining all street lights except for those on wooden poles as those are owned and maintained by Georgia Power.
 							</div>
 							
-							<div class="visualization"></div>
+							<div class="visualization top legend"></div>
+							<div class="visualization bottom legend"></div>
+							
+							<div class= "chartabt rightside"><img src="images/up_green.png"></img>The percent of signs & traffic signals repaired within SLA has been increasing over the year, and has met its target goal at least 50% of recorded months</div>
 							
 							</span>
 							<span class="enhanced close">X</span>
@@ -332,7 +344,7 @@
 			<div id="industry" class="hidden">
 				<div class="datarow notitles">
 					<div id="industry1x1" onclick="select('industry1x1')" class="datasquare medium">
-						<div class="dataheader longtext">Total New WIA Clients (July 2013)</div>
+						<div class="dataheader grey longtext">Total New WIA Clients (July 2013)</div>
 						<div class="databody">
 							<span class="normal">292 (avg)</span>
 							<span class="enhanced">
@@ -362,6 +374,7 @@
 							</div>
 							
 							<div class="visualization"></div>
+							<div class= "chartabt"><img src="images/up_green.png"></img>The employment in the city workforce has been increasing over the year</div>
 							
 							</span>
 							<span class="enhanced close">X</span>
@@ -371,7 +384,7 @@
 				
 				<div class="datarow notitles">
 					<div id="industry1x2" onclick="select('industry1x2')" class="datasquare medium">
-						<div class="dataheader longtext">AWDA Youth Attainment (July 2013)</div>
+						<div class="dataheader grey longtext">AWDA Youth Attainment (July 2013)</div>
 						<div class="databody">
 							<span class="normal">43%</span>
 							<span class="enhanced">
@@ -393,7 +406,7 @@
 						</div>
 					</div>
 					<div id="industry2x2" onclick="select('industry2x2')" class="datasquare medium">
-						<div class="dataheader longtext">Total WIA Adult Program Graduations (July 2013)</div>
+						<div class="dataheader grey longtext">Total WIA Adult Program Graduations (July 2013)</div>
 						<div class="databody">
 							<span class="normal">44</span>
 							<span class="enhanced">
@@ -434,6 +447,7 @@
 							</div>
 							
 							<div class="visualization"></div>
+							<div class= "chartabt"><img src="images/up_green.png"></img>The enrollment of youth in after-school programs has been increasing over the year</div>
 							
 							</span>
 							<span class="enhanced close">X</span>
@@ -453,6 +467,7 @@
 							</div>
 							
 							<div class="visualization"></div>
+							<div class= "chartabt"><img src="images/up_green.png"></img>The enrollment of youth in after-school recreational center programs has been increasing over the year</div>
 							
 							</span>
 							<span class="enhanced close">X</span>
@@ -587,9 +602,9 @@
 			<div id="env" class="hidden">
 				<div class="datarow notitles">
 					<div id="env1x1" onclick="select('env1x1')" class="datasquare medium">
-						<div class="dataheader longtext">Compliance Rate: Drinking & Waste Water</div>
+						<div class="dataheader longtext">Compliance Rate of Drinking Water</div>
 						<div class="databody">
-							<span class="normal">100% & 98% (avg)</span>
+							<span class="normal">100% (avg)</span>
 							<span class="enhanced">
 							
 							<div class="enhanced expandedViewText">
@@ -608,6 +623,7 @@
 							</div>
 							
 							<div class="visualization"></div>
+							<div class= "chartabt"><img src="images/up_green.png"></img>The compliance rate of drinking water has met its goal during every recorded month</div>
 							
 							</span>
 							<span class="enhanced close">X</span>
@@ -628,6 +644,7 @@
 							</div>
 							
 							<div class="visualization"></div>
+							<div class= "chartabt"><img src="images/up_red.png"></img>The amount of waste collected has been increasing over the year</div>
 							
 							</span>
 							<span class="enhanced close">X</span>
@@ -636,7 +653,7 @@
 				</div>
 				<div class="datarow notitles">
 					<div id="env1x2" onclick="select('env1x2')" class="datasquare medium">
-						<div class="dataheader red">Total Waste Landfilled</div>
+						<div class="dataheader">Total Waste Landfilled</div>
 						<div class="databody">
 							<span class="normal">12,681 tons (avg)</span>
 							<span class="enhanced">
@@ -654,6 +671,7 @@
 							</div>
 							
 							<div class="visualization"></div>
+							<div class= "chartabt"><img src="images/down_green.png"></img>The amount of waste landfilled has been decreasing overall throughout the year</div>
 							
 							</span>
 							<span class="enhanced close">X</span>
@@ -671,6 +689,7 @@
 							</div>
 							
 							<div class="visualization"></div>
+							<div class= "chartabt"><img src="images/up_green.png"></img>The removal of dead animals has reached its target goal every recorded month throughout the year</div>
 							
 							</span>
 							<span class="enhanced close">X</span>

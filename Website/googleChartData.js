@@ -1,12 +1,17 @@
 google.load('visualization', '1', {packages: ['corechart']});
 
+
 var drawVisualization = function(name) {
-	var data, options;
-	var node = document.getElementById(name).getElementsByClassName('visualization')[0];
+	var data, options, data2, options2;
+	var nodes = document.getElementById(name).getElementsByClassName('visualization');
+	var node = nodes[0];
+	var node2;
+	if (nodes[1])
+		node2 = nodes[1];
 	
 	//SAFETY
 	if (name == 'safety1x1') {
-		data = google.visualization.arrayToDataTable([
+		data2 = google.visualization.arrayToDataTable([
           ['Month', 'Percent'],
           ['Jan', .94],
           ['Feb', .93],
@@ -17,12 +22,31 @@ var drawVisualization = function(name) {
           ['July', .93]
         ]);
 		
-		options = {title: "911 Calls Answered in 10 Seconds",
-                  width:500, height:300,legend :'none',
+		options2 = {title: "911 Calls Answered in 10 Seconds",
+                  width:400, height:180,legend :'none',
                   backgroundColor: { fill: 'transparent'},
                   hAxis: {title: "2013"},
                   vAxis: {format:'#%'}};
-        }
+				  
+		data = google.visualization.arrayToDataTable([
+          ['Month', 'Total Dispatched 911 Calls'],
+          ['Jan', 29895],
+          ['Feb',  25277],
+          ['March',  29337],
+          ['April',  30436],
+          ['May',  31358],
+          ['June', 33864],
+          ['July', 33959]
+        ]);
+      
+        options = {
+			title:"Total Dispatched 911 Calls",
+			  width:400, height:180,
+			  backgroundColor: { fill: 'transparent'},
+			  chartArea: {  width: "45%", height: "70%" },
+			  hAxis: {title: "2013"}
+		};
+	}
                   
     	else if (name == 'safety2x1') {
 		var data = google.visualization.arrayToDataTable([
@@ -58,6 +82,7 @@ var drawVisualization = function(name) {
 		options = {title:"Total Shootings vs. Non-Fatal Shootings",
                   width:500, height:300,
                   backgroundColor: { fill: 'transparent'},
+				  chartArea: {  width: "50%", height: "70%" },
                   hAxis: {title: "2013"}};
 		}
 		
@@ -134,7 +159,7 @@ var drawVisualization = function(name) {
 		width:500, height:300,
 		backgroundColor: {fill: 'transparent'},
 		vAxis: {format:'#%'},
-		chartArea: {  width: "50%", height: "70%" }};
+		chartArea: {  width: "45%", height: "70%" }};
 		}
 		
 		else if(name == 'trans3x1'){
@@ -151,7 +176,7 @@ var drawVisualization = function(name) {
 		
 		else if(name == 'trans1x2'){
 		var data = google.visualization.arrayToDataTable([
-          ['Month', 'Asphalt/Street Repair Completed within SLA', 'Target Goal'],
+          ['Month', 'Asphalt/ Street Repair Completed within SLA', 'Target Goal'],
           ['April',  .85, .90],
           ['May',  .89, .90],
           ['June',  .952, .90],
@@ -172,7 +197,7 @@ var drawVisualization = function(name) {
 		
 		else if(name == 'trans2x2'){
 		 var data = google.visualization.arrayToDataTable([
-          ['Month', 'Sidewalk/Concrete Repair Completed within SLA', 'Target Goal'],
+          ['Month', 'Sidewalk/ Concrete Repair Completed within SLA', 'Target Goal'],
           ['April',  .77, .90],
           ['May',  1.00, .90],
           ['June',  .947, .90],
@@ -181,18 +206,17 @@ var drawVisualization = function(name) {
         
         options = {
           title : 'Sidewalk/Concrete Repair Completed within SLA',
-          width: 600,
-          height: 300,
+          width: 400,
+          height: 180,
           vAxis: {format:'#%'},
           hAxis: {title: "2013"},
           backgroundColor: {fill: 'transparent'},
           chartArea: {  width: "50%", height: "70%" },
           seriesType: "bars",
           series: {1: {type: "line"}}};
-		}
-		
-		else if(name == 'trans3x2'){
-		var data = google.visualization.arrayToDataTable([
+		  
+		  
+		  data2 = google.visualization.arrayToDataTable([
           ['Month', 'Street Light Repair Completed within SLA', 'Target Goal'],
           ['April',  .61, .90],
           ['May',  1.0, .90],
@@ -200,16 +224,58 @@ var drawVisualization = function(name) {
           ['July',  1.0, .90]
         ]);
         
-        options = {
+        options2 = {
           title : 'Street Light Repair Completed within SLA',
-          width: 500,
-          height: 300,
+          width: 400,
+          height: 180,
           vAxis: {format:'#%'},
           hAxis: {title: "2013"},
           backgroundColor: { fill: 'transparent'},
+		  chartArea: {  width: "50%", height: "70%" },
           seriesType: "bars",
           series: {1: {type: "line"}}
         };
+		}
+		
+		else if(name == 'trans3x2'){
+		var data = google.visualization.arrayToDataTable([
+          ['Month', 'Signs Repair Replacement Completed within SLA', 'Target Goal'],
+          ['April',  .78, .90],
+          ['May',  .84, .90],
+          ['June',  .944, .90],
+          ['July',  .9923, .90]
+        ]);
+        
+        options = {
+          title : 'Signs Repair Replacement Completed within SLA',
+          width: 400,
+          height: 180,
+          vAxis: {format:'#%'},
+          hAxis: {title: "2013"},
+          backgroundColor: {fill: 'transparent'},
+          chartArea: {  width: "45%", height: "70%" },
+          seriesType: "bars",
+          series: {1: {type: "line"}}
+		};
+		
+		data2 = google.visualization.arrayToDataTable([
+          ['Month', '% Traffic Signal Repair Completed within SLA', 'Target Goal'],
+          ['April',  .64, .90],
+          ['May',  .89, .90],
+          ['June',  .936, .90],
+          ['July',  .9947, .90]
+        ]);
+		
+		options2 = {
+          title : 'Traffic Signal Repair Completed within SLA',
+          width: 400,
+          height: 180,
+          vAxis: {format:'#%'},
+          hAxis: {title: "2013"},
+		  backgroundColor: {fill: 'transparent'},
+		  chartArea: {  width: "45%", height: "70%" },
+          seriesType: "bars",
+          series: {1: {type: "line"}}};
 		}
 		
 		//INDUSTRY
@@ -255,6 +321,7 @@ var drawVisualization = function(name) {
         
         options = {title:"Total Youth Attainment vs. Youth Placement",
                               width:500, height:300,
+							  chartArea: {  width: "50%", height: "70%" },
                               backgroundColor: {fill: 'transparent'}};
 		}
 		
@@ -266,6 +333,7 @@ var drawVisualization = function(name) {
         
         options =  {title:"WIA Adult Program Graduations/Completions",
                               width:500, height:300, 
+							  chartArea: {  width: "50%", height: "70%" },
                               backgroundColor: {fill: 'transparent'}
 							  };
 		}
@@ -323,9 +391,10 @@ var drawVisualization = function(name) {
         options = {
           title : 'Drinking Water Compliance Rate as % of Prior 365 Days in Compliance',
           width: 500,
-          height: 350,
+          height: 300,
           vAxis: {format:'#%', minValue: 0.00},
           backgroundColor: {fill: 'transparent'},
+		  chartArea: {  width: "50%", height: "70%" },
           hAxis: {title: "2013"},
           seriesType: "bars",
           series: {2: {type: "line"}}};
@@ -383,7 +452,7 @@ var drawVisualization = function(name) {
           width: 500,
           height: 300,
           vAxis: {format:'#%', minValue: 0.00},
-          
+          chartArea: {  width: "50%", height: "70%" },
           hAxis: {title: "2013"},
           backgroundColor: {fill: 'transparent'},
           seriesType: "bars",
@@ -392,4 +461,6 @@ var drawVisualization = function(name) {
 	
 	
 	new google.visualization.ColumnChart(node).draw(data, options);
+	if (node2 && data2 && options2)
+		new google.visualization.ColumnChart(node2).draw(data2, options2);
 }

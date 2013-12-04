@@ -26,6 +26,7 @@ var load = function() {
 		event.stopPropagation();
 	});
 	update();
+	setInterval("update()", 1000);
 };
 
 var update = function() {
