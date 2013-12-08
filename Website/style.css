@@ -176,8 +176,9 @@ a:hover .environment{
 	position: absolute;
 	height: 70%;
 	width: 72%;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
+
 .hidden,
 .leftarrowdiv.home{
 	display:none !important;
@@ -482,24 +483,27 @@ top: 50%;
 	min-width: 70%;
 	width: 70%;
 	min-height: 200px;
-	height: 40%;
+	/*height: 40%;*/
+	height: 44.5%;
+	max-height: 44.5%;
+	min-height: 44.5%;
 	position: absolute;
 }
 #scroll{
+	overflow: hidden;
 	background-image:url("images/light-20420.png");
 	background-size:100%;
-	margin-top: 30px;
-	margin-left: 30px;
-	margin-right: 30px;
+	margin-top: 3%;
+	margin-left: 3%;
+	/*margin-right: 30px;*/
 	min-width: 65%;
 	width: 65%;
-	min-height: 200px;
-	height: 40%;
+	/*min-height: 200px;
+	height: 40%;*/
+	height: 44.5%;
+	max-height: 44.5%;
+	min-height: 44.5%;
 	width: 65%;
-	/*opacity:0.4;
-	filter:alpha(opacity=40);
-	-moz-opacity: 0.4;
-	-khtml-opacity: 0.4;*/
 	position: absolute;
 	border-style: ridge;
 	border-width: 5px;
@@ -518,6 +522,7 @@ top: 50%;
 	font-size: 21px;
 	padding-top: 0.5em;
 	padding-left: 5px;
+	overflow: hidden;
 }
 .scrollFooter{
 	position: absolute;
@@ -532,6 +537,7 @@ top: 50%;
 	font-size: 14px;
 	padding-top: 0.5em;
 	padding-left: 5px;
+	overflow: hidden;
 }
 .scrollBody{
 	font-family: 'Open Sans', sans-serif;
@@ -542,8 +548,8 @@ top: 50%;
 	position: absolute;
 	color: #F5F5F5;
 }
-.categoryBox{
-	height: 110px;
+.category{
+	height: 121px;
 	width: 110px;
 	margin-top: 30%;
 	position:absolute;
@@ -554,38 +560,29 @@ top: 50%;
 	cursor: pointer; 
 	cursor: hand;
 }
-.categorySafety{
+
+.categoryBox{
 	height: 110px;
 	width: 110px;
 	background-size: 110px 110px;
+}
+.categorySafety{
 	background-image:url("images/stock_safety.jpg");
 	margin-left: 35px;
 }
 .categoryIndustry{
-	height: 110px;
-	width: 110px;
-	background-size: 110px 110px;
 	background-image:url("images/stock_industry.jpg");
 	margin-left: 435px;
 }
 .categoryEdu{
-	height: 110px;
-	width: 110px;
-	background-size: 110px 110px;
 	background-image:url("images/stock_edu.jpg");
 	margin-left: 635px;
 }
 .categoryEnv{
-	height: 110px;
-	width: 110px;
-	background-size: 110px 110px;
 	background-image:url("images/stock_env.jpg");
 	margin-left: 835px;
 }
 .categoryTransportation{
-	height: 110px;
-	width: 110px;
-	background-size: 110px 110px;
 	background-image:url("images/stock_transportation.jpg");
 	margin-left: 235px;
 }
@@ -603,6 +600,7 @@ top: 50%;
 	top: 90%;
 	height: 1.5em;
 	width: 110px;
+	overflow: hidden;
 }
 .categoryHeader.Safety{
 	margin-left: 35px;
@@ -621,11 +619,13 @@ top: 50%;
 }
 #getStarted{
 	position: absolute;
-	top: 53%;
+	top: 50%;
+	margin-top: 1%;
+	display: block;
 }
 #homePgTxt{
 	position: absolute;
-	top: 30px;
+	margin-top: 3%;
 	left: 72%;
 	width: 23.2%;
 	min-width: 23.2%;
